@@ -23,31 +23,29 @@
     .container { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
     nav {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.5rem 0 1.25rem;
-      border-bottom: 0.5px solid var(--border);
-      margin-bottom: 3rem;
+      padding: 1.5rem 0 1.25rem; border-bottom: 0.5px solid var(--border); margin-bottom: 3rem;
     }
     .nav-name { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
     .nav-links { display: flex; gap: 1.75rem; list-style: none; }
     .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
     .nav-links a:hover { color: var(--sage); }
     .hero { margin-bottom: 3.5rem; }
+    .about-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); margin-bottom: 1.25rem; }
+    .about-label span { color: var(--sage); }
+    .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+    .hero-photo { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center top; border-radius: 12px; }
+    .hero-text { display: flex; flex-direction: column; gap: 1rem; }
     .location-bubble {
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--sage-light); border: 0.5px solid var(--sage-mid);
       border-radius: 20px; padding: 5px 12px 5px 8px;
-      font-size: 12px; font-weight: 500; color: var(--sage);
-      letter-spacing: 0.02em; margin-bottom: 0.75rem;
+      font-size: 12px; font-weight: 500; color: var(--sage); letter-spacing: 0.02em; width: fit-content;
     }
     .location-bubble svg { width: 13px; height: 13px; stroke: var(--sage); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .hero h1 { font-size: 28px; font-weight: 500; line-height: 1.35; color: var(--text); margin-bottom: 1rem; max-width: 500px; }
-    .hero p { font-size: 15px; line-height: 1.75; color: var(--text-muted); max-width: 520px; }
+    .hero-text h1 { font-size: 22px; font-weight: 500; line-height: 1.35; color: var(--text); }
+    .hero-text p { font-size: 14px; line-height: 1.75; color: var(--text-muted); }
     .section { margin-bottom: 3rem; }
-    .section-header {
-      display: flex; justify-content: space-between; align-items: baseline;
-      margin-bottom: 1.25rem; padding-bottom: 0.6rem;
-      border-bottom: 0.5px solid var(--border);
-    }
+    .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 0.5px solid var(--border); }
     .section-title { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
     .section-link { font-size: 12px; color: var(--sage); text-decoration: none; }
     .section-link:hover { text-decoration: underline; }
@@ -57,59 +55,34 @@
     .now-card-title { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.4; margin-bottom: 0.25rem; }
     .now-card-sub { font-size: 12px; color: var(--text-muted); }
     .writing-list { display: flex; flex-direction: column; }
-    .writing-item {
-      display: flex; justify-content: space-between; align-items: baseline;
-      padding: 0.85rem 0; border-bottom: 0.5px solid var(--border);
-      text-decoration: none; color: inherit; transition: opacity 0.15s;
-    }
+    .writing-item { display: flex; justify-content: space-between; align-items: baseline; padding: 0.85rem 0; border-bottom: 0.5px solid var(--border); text-decoration: none; color: inherit; transition: opacity 0.15s; }
     .writing-item:hover { opacity: 0.7; }
     .writing-title { font-size: 14px; color: var(--text); }
     .writing-meta { font-size: 12px; color: var(--text-muted); white-space: nowrap; margin-left: 1rem; }
-    .writing-tag {
-      display: inline-block; font-size: 10px; letter-spacing: 0.06em;
-      background: var(--sage-light); color: var(--sage);
-      padding: 2px 8px; border-radius: 20px; margin-left: 8px; font-weight: 500;
-    }
+    .writing-tag { display: inline-block; font-size: 10px; letter-spacing: 0.06em; background: var(--sage-light); color: var(--sage); padding: 2px 8px; border-radius: 20px; margin-left: 8px; font-weight: 500; }
     .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .project-card { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem; }
     .project-icon { font-size: 18px; margin-bottom: 0.6rem; }
     .project-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; }
     .project-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
-    .project-wip {
-      display: inline-block; margin-top: 0.5rem;
-      font-size: 10px; letter-spacing: 0.06em;
-      background: var(--sage-light); color: var(--sage);
-      padding: 2px 8px; border-radius: 20px; font-weight: 500;
-    }
+    .project-wip { display: inline-block; margin-top: 0.5rem; font-size: 10px; letter-spacing: 0.06em; background: var(--sage-light); color: var(--sage); padding: 2px 8px; border-radius: 20px; font-weight: 500; }
     .contact-form { display: flex; flex-direction: column; gap: 12px; }
-    .contact-form input, .contact-form textarea {
-      font-family: 'Inter', sans-serif; font-size: 14px;
-      background: var(--card-bg); border: 0.5px solid var(--border);
-      border-radius: 8px; padding: 0.75rem 1rem; color: var(--text);
-      outline: none; transition: border-color 0.15s;
-    }
+    .contact-form input, .contact-form textarea { font-family: 'Inter', sans-serif; font-size: 14px; background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 8px; padding: 0.75rem 1rem; color: var(--text); outline: none; transition: border-color 0.15s; }
     .contact-form input:focus, .contact-form textarea:focus { border-color: var(--sage-mid); }
     .contact-form textarea { resize: vertical; min-height: 120px; }
-    .contact-form button {
-      align-self: flex-start; background: var(--sage); color: white;
-      border: none; border-radius: 8px; padding: 0.6rem 1.25rem;
-      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
-      cursor: pointer; transition: opacity 0.15s;
-    }
+    .contact-form button { align-self: flex-start; background: var(--sage); color: white; border: none; border-radius: 8px; padding: 0.6rem 1.25rem; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; }
     .contact-form button:hover { opacity: 0.85; }
-    footer {
-      padding: 1.5rem 0; border-top: 0.5px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;
-    }
+    footer { padding: 1.5rem 0; border-top: 0.5px solid var(--border); display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
     .footer-left { font-size: 12px; color: var(--text-muted); }
     .footer-links { display: flex; gap: 1.25rem; }
     .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--sage); }
-    @media (max-width: 500px) {
+    @media (max-width: 560px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-photo { aspect-ratio: 4/3; }
       .now-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
       .nav-links { gap: 1rem; }
-      .hero h1 { font-size: 22px; }
     }
   </style>
 </head>
@@ -128,21 +101,25 @@
     </nav>
 
     <section class="hero" id="about">
-      <div class="location-bubble">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-          <circle cx="12" cy="9" r="2.5"/>
-        </svg>
-        Seattle, WA
+      <div class="about-label">ABOUT AI<span style="color:var(--sage)">ME</span>E</div>
+      <div class="hero-layout">
+        <div class="hero-text">
+          <div class="location-bubble">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+            Seattle, WA
+          </div>
+          <h1>Building a corner of the internet that's actually mine.</h1>
+          <p>Extrovert from California who enjoys group fitness classes, Chopin nocturnes, and third spaces. Reminiscing about the days when social media was about connection — not ads, shorts, and insecurity. This is my attempt at reinventing what that looks like.</p>
+        </div>
+        <img src="tir-aimee-xu-square.jpg" alt="Aimee Xu eating tiramisu" class="hero-photo" />
       </div>
-      <h1>Building a corner of the internet that's actually mine.</h1>
-      <p>Extrovert from California who enjoys group fitness classes, Chopin nocturnes, and third spaces. Reminiscing about the days when social media was about connection — not ads, shorts, and insecurity. This is my attempt at reinventing what that looks like.</p>
     </section>
 
     <section class="section" id="now">
-      <div class="section-header">
-        <span class="section-title">Now</span>
-      </div>
+      <div class="section-header"><span class="section-title">Now</span></div>
       <div class="now-grid">
         <div class="now-card">
           <div class="now-card-label">Reading</div>
@@ -188,9 +165,7 @@
     </section>
 
     <section class="section" id="projects">
-      <div class="section-header">
-        <span class="section-title">Projects</span>
-      </div>
+      <div class="section-header"><span class="section-title">Projects</span></div>
       <div class="projects-grid">
         <div class="project-card">
           <div class="project-icon">🌐</div>
@@ -209,7 +184,7 @@
 
     <section class="section" id="contact">
       <div class="section-header">
-        <span class="section-title">Contact</span>
+        <span class="section-title">CONTACT AI<span style="color:var(--sage)">ME</span>E</span>
       </div>
       <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <input type="text" name="name" placeholder="Your name" required />
