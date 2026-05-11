@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piano — Aimee Xu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --sage: #7a9e7e;
+      --sage-light: #eef3ee;
+      --sage-mid: #b8cfba;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --border: rgba(0,0,0,0.1);
+      --bg: #faf8f4;
+      --card-bg: #ffffff;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 0 1.25rem; border-bottom: 0.5px solid var(--border); margin-bottom: 3rem;
+    }
+    .nav-name { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--sage); }
+    .page-header { margin-bottom: 2.5rem; }
+    .page-header h1 { font-size: 24px; font-weight: 500; margin-bottom: 0.5rem; }
+    .page-header p { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+    .video-list { display: flex; flex-direction: column; gap: 2.5rem; }
+    .video-card { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .video-embed { position: relative; padding-bottom: 56.25%; height: 0; }
+    .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .video-info { padding: 1rem 1.25rem; }
+    .video-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+    .video-sub { font-size: 12px; color: var(--text-muted); }
+    .youtube-link {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 2rem;
+      font-size: 13px; color: var(--sage); text-decoration: none;
+    }
+    .youtube-link:hover { text-decoration: underline; }
+    footer {
+      padding: 1.5rem 0; border-top: 0.5px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; margin-top: 3rem;
+    }
+    .footer-left { font-size: 12px; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--sage); }
+    @media (max-width: 500px) {
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="nav-name">Aimee Xu</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#now">Now</a></li>
+        <li><a href="blog.html">Writing</a></li>
+        <li><a href="piano.html">Piano</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="page-header">
+      <h1>Piano</h1>
+      <p>I've been playing since I was a kid. Chopin is a forever obsession. These are some recordings — imperfect and real.</p>
+    </div>
+
+    <div class="video-list">
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/u6AJOhP5U74" title="Piano video" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-sub">youtube.com/@aimxu</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/nerAQHuufGc" title="Piano video" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-sub">youtube.com/@aimxu</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/SE3GAkgd_cU" title="Piano video" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-sub">youtube.com/@aimxu</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://youtube.com/@aimxu" target="_blank" class="youtube-link">All videos on YouTube →</a>
+
+    <footer>
+      <span class="footer-left">© 2026 Aimee Xu</span>
+      <div class="footer-links">
+        <a href="https://medium.com/@aimxu" target="_blank">Medium</a>
+        <a href="https://youtube.com/@aimxu" target="_blank">YouTube</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
