@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
       --sage: #7a9e7e;
       --sage-light: #eef3ee;
@@ -20,266 +19,92 @@
       --bg: #faf8f4;
       --card-bg: #ffffff;
     }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Nav */
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 1.5rem 0 1.25rem;
       border-bottom: 0.5px solid var(--border);
       margin-bottom: 3rem;
     }
-
-    .nav-name {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.75rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
+    .nav-name { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
     .nav-links a:hover { color: var(--sage); }
-
-    /* Hero */
     .hero { margin-bottom: 3.5rem; }
-
     .location-bubble {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--sage-light);
-      border: 0.5px solid var(--sage-mid);
-      border-radius: 20px;
-      padding: 5px 12px 5px 8px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--sage);
-      letter-spacing: 0.02em;
-      margin-bottom: 0.75rem;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--sage-light); border: 0.5px solid var(--sage-mid);
+      border-radius: 20px; padding: 5px 12px 5px 8px;
+      font-size: 12px; font-weight: 500; color: var(--sage);
+      letter-spacing: 0.02em; margin-bottom: 0.75rem;
     }
-
-    .location-bubble svg {
-      width: 13px;
-      height: 13px;
-      stroke: var(--sage);
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .hero h1 {
-      font-size: 28px;
-      font-weight: 500;
-      line-height: 1.35;
-      color: var(--text);
-      margin-bottom: 1rem;
-      max-width: 500px;
-    }
-
-    .hero p {
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--text-muted);
-      max-width: 520px;
-    }
-
-    /* Sections */
+    .location-bubble svg { width: 13px; height: 13px; stroke: var(--sage); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .hero h1 { font-size: 28px; font-weight: 500; line-height: 1.35; color: var(--text); margin-bottom: 1rem; max-width: 500px; }
+    .hero p { font-size: 15px; line-height: 1.75; color: var(--text-muted); max-width: 520px; }
     .section { margin-bottom: 3rem; }
-
     .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.6rem;
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 1.25rem; padding-bottom: 0.6rem;
       border-bottom: 0.5px solid var(--border);
     }
-
-    .section-title {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .section-link {
-      font-size: 12px;
-      color: var(--sage);
-      text-decoration: none;
-    }
-
+    .section-title { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .section-link { font-size: 12px; color: var(--sage); text-decoration: none; }
     .section-link:hover { text-decoration: underline; }
-
-    /* Now cards */
-    .now-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .now-card {
-      background: var(--card-bg);
-      border: 0.5px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem;
-    }
-
-    .now-card-label {
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 0.4rem;
-      font-weight: 500;
-    }
-
-    .now-card-title {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1.4;
-      margin-bottom: 0.25rem;
-    }
-
-    .now-card-sub {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    /* Writing list */
+    .now-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .now-card { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 12px; padding: 1rem; }
+    .now-card-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; font-weight: 500; }
+    .now-card-title { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.4; margin-bottom: 0.25rem; }
+    .now-card-sub { font-size: 12px; color: var(--text-muted); }
     .writing-list { display: flex; flex-direction: column; }
-
     .writing-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 0.85rem 0;
-      border-bottom: 0.5px solid var(--border);
-      text-decoration: none;
-      color: inherit;
-      transition: opacity 0.15s;
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 0.85rem 0; border-bottom: 0.5px solid var(--border);
+      text-decoration: none; color: inherit; transition: opacity 0.15s;
     }
-
     .writing-item:hover { opacity: 0.7; }
-
     .writing-title { font-size: 14px; color: var(--text); }
-
-    .writing-meta {
-      font-size: 12px;
-      color: var(--text-muted);
-      white-space: nowrap;
-      margin-left: 1rem;
-    }
-
+    .writing-meta { font-size: 12px; color: var(--text-muted); white-space: nowrap; margin-left: 1rem; }
     .writing-tag {
-      display: inline-block;
-      font-size: 10px;
-      letter-spacing: 0.06em;
-      background: var(--sage-light);
-      color: var(--sage);
-      padding: 2px 8px;
-      border-radius: 20px;
-      margin-left: 8px;
-      font-weight: 500;
+      display: inline-block; font-size: 10px; letter-spacing: 0.06em;
+      background: var(--sage-light); color: var(--sage);
+      padding: 2px 8px; border-radius: 20px; margin-left: 8px; font-weight: 500;
     }
-
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border: 0.5px solid var(--border);
-      border-radius: 12px;
-      padding: 1.1rem 1.25rem;
-    }
-
-    .project-icon {
-      font-size: 18px;
-      color: var(--sage);
-      margin-bottom: 0.6rem;
-    }
-
-    .project-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 0.3rem;
-    }
-
-    .project-desc {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .project-card { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem; }
+    .project-icon { font-size: 18px; margin-bottom: 0.6rem; }
+    .project-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; }
+    .project-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
     .project-wip {
-      display: inline-block;
-      margin-top: 0.5rem;
-      font-size: 10px;
-      letter-spacing: 0.06em;
-      background: var(--sage-light);
-      color: var(--sage);
-      padding: 2px 8px;
-      border-radius: 20px;
-      font-weight: 500;
+      display: inline-block; margin-top: 0.5rem;
+      font-size: 10px; letter-spacing: 0.06em;
+      background: var(--sage-light); color: var(--sage);
+      padding: 2px 8px; border-radius: 20px; font-weight: 500;
     }
-
-    /* Footer */
+    .contact-form { display: flex; flex-direction: column; gap: 12px; }
+    .contact-form input, .contact-form textarea {
+      font-family: 'Inter', sans-serif; font-size: 14px;
+      background: var(--card-bg); border: 0.5px solid var(--border);
+      border-radius: 8px; padding: 0.75rem 1rem; color: var(--text);
+      outline: none; transition: border-color 0.15s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--sage-mid); }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form button {
+      align-self: flex-start; background: var(--sage); color: white;
+      border: none; border-radius: 8px; padding: 0.6rem 1.25rem;
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
+      cursor: pointer; transition: opacity 0.15s;
+    }
+    .contact-form button:hover { opacity: 0.85; }
     footer {
-      padding: 1.5rem 0;
-      border-top: 0.5px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1rem;
+      padding: 1.5rem 0; border-top: 0.5px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;
     }
-
     .footer-left { font-size: 12px; color: var(--text-muted); }
-
     .footer-links { display: flex; gap: 1.25rem; }
-
-    .footer-links a {
-      font-size: 12px;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--sage); }
-
-    /* Responsive */
     @media (max-width: 500px) {
       .now-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
@@ -291,17 +116,17 @@
 <body>
   <div class="container">
     <nav>
-      <a href="#" class="nav-name">Aimee Xu</a>
+      <a href="index.html" class="nav-name">Aimee Xu</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#now">Now</a></li>
-        <li><a href="#writing">Writing</a></li>
+        <li><a href="blog.html">Writing</a></li>
+        <li><a href="piano.html">Piano</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
-    <!-- Hero -->
     <section class="hero" id="about">
       <div class="location-bubble">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -314,7 +139,6 @@
       <p>Extrovert from California who enjoys group fitness classes, Chopin nocturnes, and third spaces. Reminiscing about the days when social media was about connection — not ads, shorts, and insecurity. This is my attempt at reinventing what that looks like.</p>
     </section>
 
-    <!-- Now -->
     <section class="section" id="now">
       <div class="section-header">
         <span class="section-title">Now</span>
@@ -338,33 +162,31 @@
       </div>
     </section>
 
-    <!-- Writing -->
     <section class="section" id="writing">
       <div class="section-header">
         <span class="section-title">Writing</span>
-        <a href="https://medium.com/@aimxu" target="_blank" class="section-link">All posts →</a>
+        <a href="blog.html" class="section-link">All posts →</a>
       </div>
       <div class="writing-list">
-        <a href="https://medium.com/@aimxu" target="_blank" class="writing-item">
-          <span class="writing-title">In my prime <span class="writing-tag">Personal</span></span>
-          <span class="writing-meta">2024</span>
+        <a href="https://medium.com/@aimxu/the-courage-to-be-disliked-a93001029320" target="_blank" class="writing-item">
+          <span class="writing-title">The Courage to Be Disliked <span class="writing-tag">Personal</span></span>
+          <span class="writing-meta">May 2026</span>
         </a>
-        <a href="https://medium.com/@aimxu" target="_blank" class="writing-item">
-          <span class="writing-title">The Honey Nut Cheerio theory <span class="writing-tag">Personal</span></span>
-          <span class="writing-meta">2024</span>
+        <a href="https://medium.com/@aimxu/jimmy-o-yang-is-my-celebrity-crush-4d567310bd8e" target="_blank" class="writing-item">
+          <span class="writing-title">Jimmy O. Yang is my celebrity crush <span class="writing-tag">Personal</span></span>
+          <span class="writing-meta">Feb 2026</span>
         </a>
-        <a href="https://medium.com/@aimxu" target="_blank" class="writing-item">
-          <span class="writing-title">A love letter to San Francisco <span class="writing-tag">Personal</span></span>
-          <span class="writing-meta">2023</span>
+        <a href="https://medium.com/@aimxu/2025-deconstructed-b1494caeb943" target="_blank" class="writing-item">
+          <span class="writing-title">2025, deconstructed <span class="writing-tag">Personal</span></span>
+          <span class="writing-meta">Dec 2025</span>
         </a>
-        <a href="https://medium.com/@aimxu" target="_blank" class="writing-item">
-          <span class="writing-title">UCLA commencement speech <span class="writing-tag">Public Speaking</span></span>
-          <span class="writing-meta">2023</span>
+        <a href="https://medium.com/@aimxu/a-bittersweet-love-letter-71bd1e5c8da4" target="_blank" class="writing-item">
+          <span class="writing-title">A Bittersweet Love Letter <span class="writing-tag">Personal</span></span>
+          <span class="writing-meta">Dec 2025</span>
         </a>
       </div>
     </section>
 
-    <!-- Projects -->
     <section class="section" id="projects">
       <div class="section-header">
         <span class="section-title">Projects</span>
@@ -385,23 +207,24 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section class="section" id="contact">
       <div class="section-header">
         <span class="section-title">Contact</span>
       </div>
-      <p style="font-size: 14px; color: var(--text-muted); line-height: 1.75;">
-        Want to say hi? I'm always open to interesting conversations.<br>
-        Reach me at <a href="mailto:your@email.com" style="color: var(--sage);">your@email.com</a>
-      </p>
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="What's up"></textarea>
+        <button type="submit">Send →</button>
+      </form>
     </section>
 
     <footer>
       <span class="footer-left">© 2026 Aimee Xu</span>
       <div class="footer-links">
         <a href="https://medium.com/@aimxu" target="_blank">Medium</a>
+        <a href="https://youtube.com/@aimxu" target="_blank">YouTube</a>
         <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-        <a href="mailto:your@email.com">Email</a>
       </div>
     </footer>
   </div>
