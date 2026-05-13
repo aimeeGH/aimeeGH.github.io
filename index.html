@@ -83,6 +83,16 @@
       .projects-grid { grid-template-columns: 1fr; }
       .nav-links { gap: 1rem; }
     }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
   </style>
 </head>
 <body>
@@ -99,7 +109,7 @@
       </ul>
     </nav>
 
-    <section class="hero" id="about">
+    <section class="hero fade-in" id="about">
       <div class="about-label"><span style="color:var(--sage)">ABOUT</span> AI<span style="color:var(--sage)">ME</span>E</div>
       <div class="hero-layout">
         <div class="hero-text">
@@ -117,7 +127,7 @@
       </div>
     </section>
 
-    <section class="section" id="now">
+  <section class="section fade-in" id="now">
       <div class="section-header"><span class="section-title">Now</span></div>
       <div class="now-grid">
         <div class="now-card">
@@ -138,7 +148,7 @@
       </div>
     </section>
 
-    <section class="section" id="writing">
+   <section class="section fade-in" id="writing">
       <div class="section-header">
         <span class="section-title">Writing</span>
         <a href="blog.html" class="section-link">All posts →</a>
@@ -163,7 +173,7 @@
       </div>
     </section>
 
-    <section class="section" id="projects">
+   <section class="section fade-in" id="projects">
       <div class="section-header"><span class="section-title">Projects</span></div>
       <div class="projects-grid">
         <div class="project-card">
@@ -181,7 +191,7 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
+    <section class="section fade-in" id="contact">
       <div class="section-header">
         <span class="section-title"><span style="color:var(--sage)">CONTACT</span> AI<span style="color:var(--sage)">ME</span>E</span>
       </div>
