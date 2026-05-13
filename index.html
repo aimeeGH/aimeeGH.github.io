@@ -31,7 +31,6 @@
     .nav-links a:hover { color: var(--sage); }
     .hero { margin-bottom: 3.5rem; }
     .about-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); margin-bottom: 1.25rem; }
-    .about-label span { color: var(--sage); }
     .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
     .hero-photo { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center top; border-radius: 12px; }
     .hero-text { display: flex; flex-direction: column; gap: 1rem; }
@@ -77,18 +76,6 @@
     .footer-links { display: flex; gap: 1.25rem; }
     .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--sage); }
-
-    /* Scroll animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     @media (max-width: 560px) {
       .hero-layout { grid-template-columns: 1fr; }
       .hero-photo { aspect-ratio: 4/3; }
@@ -112,8 +99,8 @@
       </ul>
     </nav>
 
-    <section class="hero fade-in" id="about">
-      <div class="about-label">ABOUT AI<span style="color:var(--sage)">ME</span>E</div>
+    <section class="hero" id="about">
+      <div class="about-label"><span style="color:var(--sage)">ABOUT</span> AI<span style="color:var(--sage)">ME</span>E</div>
       <div class="hero-layout">
         <div class="hero-text">
           <div class="location-bubble">
@@ -124,13 +111,13 @@
             Seattle, WA
           </div>
           <h1>Building a corner of the internet that's actually mine.</h1>
-          <p>Extrovert from California who enjoys group fitness classes, Chopin nocturnes, and third spaces. Reminiscing about the days when social media was about connection — not ads, shorts, and insecurity. This is my attempt at reinventing what that looks like.</p>
+          <p> An extrovert from California who enjoys group fitness classes, Chopin nocturnes, and third spaces. Reminiscing the MySpace days when social media was about connection — not ads, shorts, and insecurity. Building what my ideal social media looks like.</p>
         </div>
         <img src="tir-aimee-xu-square.jpg" alt="Aimee Xu eating tiramisu" class="hero-photo" />
       </div>
     </section>
 
-    <section class="section fade-in" id="now">
+    <section class="section" id="now">
       <div class="section-header"><span class="section-title">Now</span></div>
       <div class="now-grid">
         <div class="now-card">
@@ -145,13 +132,13 @@
         </div>
         <div class="now-card">
           <div class="now-card-label">Listening</div>
-          <div class="now-card-title">Choosin' Texas</div>
-          <div class="now-card-sub">Ella Langley</div>
+          <div class="now-card-title">Chopin nocturnes</div>
+          <div class="now-card-sub">Always, honestly</div>
         </div>
       </div>
     </section>
 
-    <section class="section fade-in" id="writing">
+    <section class="section" id="writing">
       <div class="section-header">
         <span class="section-title">Writing</span>
         <a href="blog.html" class="section-link">All posts →</a>
@@ -176,27 +163,27 @@
       </div>
     </section>
 
-    <section class="section fade-in" id="projects">
+    <section class="section" id="projects">
       <div class="section-header"><span class="section-title">Projects</span></div>
       <div class="projects-grid">
         <div class="project-card">
           <div class="project-icon">🌐</div>
           <div class="project-title">This website</div>
-          <div class="project-desc">Hand-coded personal site. An experiment in owning my own corner of the internet.</div>
+          <div class="project-desc">Hand-coded personal site. MY terms and conditions apply.</div>
           <span class="project-wip">In progress</span>
         </div>
         <div class="project-card">
           <div class="project-icon">📈</div>
           <div class="project-title">Personal finance tracker</div>
-          <div class="project-desc">Excel-born, eventually web-based. Built for the way my brain actually works.</div>
+          <div class="project-desc">Excel-born, eventually web-based. </div>
           <span class="project-wip">In progress</span>
         </div>
       </div>
     </section>
 
-    <section class="section fade-in" id="contact">
+    <section class="section" id="contact">
       <div class="section-header">
-        <span class="section-title">CONTACT AI<span style="color:var(--sage)">ME</span>E</span>
+        <span class="section-title"><span style="color:var(--sage)">CONTACT</span> AI<span style="color:var(--sage)">ME</span>E</span>
       </div>
       <form class="contact-form" action="https://formspree.io/f/mvzlldpv" method="POST">
         <input type="text" name="name" placeholder="Your name" required />
@@ -211,20 +198,9 @@
       <div class="footer-links">
         <a href="https://medium.com/@aimxu" target="_blank">Medium</a>
         <a href="https://youtube.com/@aimxu" target="_blank">YouTube</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
       </div>
     </footer>
   </div>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
