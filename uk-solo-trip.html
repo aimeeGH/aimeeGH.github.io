@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reflections from Solo-Traveling through the UK — Aimee Xu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --sage: #7a9e7e;
+      --sage-light: #eef3ee;
+      --sage-mid: #b8cfba;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --border: rgba(0,0,0,0.1);
+      --bg: #faf8f4;
+      --card-bg: #ffffff;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Nav */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 0 1.25rem; border-bottom: 0.5px solid var(--border); margin-bottom: 3rem;
+    }
+    .nav-name { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--sage); }
+
+    /* Article header */
+    .article-header { margin-bottom: 2.5rem; }
+    .article-tag {
+      display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--sage-light); color: var(--sage);
+      padding: 3px 10px; border-radius: 20px; font-weight: 500; margin-bottom: 1rem;
+    }
+    .article-header h1 {
+      font-family: 'Lora', serif; font-size: 32px; font-weight: 500;
+      line-height: 1.3; color: var(--text); margin-bottom: 1rem;
+    }
+    .article-meta { font-size: 13px; color: var(--text-muted); }
+    .article-meta span { margin-right: 1.5rem; }
+
+    /* Prose */
+    .prose { font-size: 16px; line-height: 1.85; color: var(--text); }
+    .prose p { margin-bottom: 1.5rem; }
+    .prose h2 {
+      font-family: 'Lora', serif; font-size: 20px; font-weight: 500;
+      color: var(--text); margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border);
+    }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 500; }
+
+    /* Carousel */
+    .carousel-section { margin: 2rem 0; }
+    .carousel-wrapper {
+      position: relative; background: var(--card-bg);
+      border: 0.5px solid var(--border); border-radius: 16px; overflow: hidden;
+    }
+    .carousel-slides { display: flex; transition: transform 0.4s ease; }
+    .carousel-slide { min-width: 100%; }
+    .carousel-img {
+      width: 100%; height: 300px; object-fit: cover;
+      background: var(--sage-light);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 0.5rem;
+    }
+    .carousel-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .carousel-img-placeholder {
+      width: 100%; height: 300px; background: var(--sage-light);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 0.5rem;
+    }
+    .placeholder-icon { font-size: 32px; opacity: 0.4; }
+    .placeholder-label { font-size: 12px; color: var(--sage); letter-spacing: 0.06em; }
+    .carousel-info { padding: 1.25rem 1.5rem; }
+    .carousel-title { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+    .carousel-subtitle { font-size: 12px; color: var(--sage); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .carousel-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    .carousel-controls {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.75rem 1.5rem; border-top: 0.5px solid var(--border);
+    }
+    .carousel-btn {
+      background: none; border: 0.5px solid var(--border); border-radius: 8px;
+      padding: 6px 14px; font-size: 16px; cursor: pointer; color: var(--text);
+      transition: all 0.15s; font-family: inherit;
+    }
+    .carousel-btn:hover { background: var(--sage-light); border-color: var(--sage-mid); color: var(--sage); }
+    .carousel-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .carousel-counter { font-size: 12px; color: var(--text-muted); }
+    .carousel-dots { display: flex; gap: 6px; align-items: center; }
+    .carousel-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border); transition: background 0.2s; cursor: pointer;
+    }
+    .carousel-dot.active { background: var(--sage); }
+
+    /* Divider */
+    .divider { border: none; border-top: 0.5px solid var(--border); margin: 2.5rem 0; }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--text-muted); text-decoration: none;
+      margin-bottom: 2rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--sage); }
+
+    /* Footer */
+    footer {
+      padding: 1.5rem 0; border-top: 0.5px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; margin-top: 3rem;
+    }
+    .footer-left { font-size: 12px; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--sage); }
+
+    /* Fade in */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 560px) {
+      .article-header h1 { font-size: 24px; }
+      .nav-links { gap: 1rem; }
+      .carousel-img, .carousel-img-placeholder { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="nav-name">Aimee Xu</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#now">Now</a></li>
+        <li><a href="blog.html">Writing</a></li>
+        <li><a href="piano.html">Piano</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="blog.html" class="back-link">← All posts</a>
+
+    <div class="article-header fade-in">
+      <span class="article-tag">Travel</span>
+      <h1>Reflections from Solo-Traveling through the UK</h1>
+      <div class="article-meta">
+        <span>Aimee Xu</span>
+        <span>May 2026</span>
+        <span>Cambridge · London · Bath · Stonehenge · Cotswolds</span>
+      </div>
+    </div>
+
+    <div class="prose fade-in">
+      <p>When I go on vacation, I'm a follower. I'm typically down for anything: nature, cityscape, museums, food, I'm there to vibe. I usually let others dictate the trip itinerary, so that way, I get to go with the flow, turn off my brain, and relax.</p>
+
+      <p>Also, booking flights and hotels stresses me out because why are there so many options, what if prices drop and what if something happens where we can't make it? Chronic overthinking in action.</p>
+
+      <p>Yet, in the past year and a half, I have confronted my fear of booking travel head on. The culmination of business trips, work conferences, flying back home, and navigating a long distance relationship have made me quite the decisive booker and traveler (especially when the travel is on somebody else's dime).</p>
+
+      <p>Also, making my own money means I get to spend it doing whatever the hell I want to do. It was time to go solo.</p>
+
+      <h2>Going Solo</h2>
+      <p>So what did I decide to do? Go solo-traveling to England!</p>
+
+      <p>I chose the UK because my good friend is studying at Cambridge, and two because I love a good British accent. But seriously, having no language barrier was important to me because I wanted to be able to ask for help and directions without fumbling with Google Translate. On my first EuroTrip to France and Italy, my multilingual boyfriend carried. Now, I only had myself.</p>
+
+      <h2>Planning</h2>
+      <p>Working a demanding job meant I had limited time to plan. Call me a grandma, but I prefer reading travel books and blogs over sourcing ideas via TikTok and short-form content. The hidden spots that go viral on TikTok become overcrowded tourist traps. Plus, many brands and influencers target ads rather than offering genuine advice.</p>
+
+      <p>In the weeks leading up to my trip, I read how to find affordable hotel chains in Central London, how to navigate the tube and double-decker buses, and learned common British phrases. I saved all the places I wanted to visit in a Google Maps folder (super clutch). Instead of having a strict hourly breakdown, I created themes for each day: "Camaraderie in Cambridge", "Frolicking in Stonehenge", "Romanticizing the Cotswold", and "Meandering through London." Thus, I wouldn't get stressed out if I was running behind schedule. I only had strict times on the stuff I had booked in advance.</p>
+
+      <h2>Packing</h2>
+      <p>I did my 7-day UK trip with a Cotopaxi 32L Mente Daypack. That's it!</p>
+
+      <p>Europe is way older than the US, and the roads reflect that. Since the places I visited also had cobblestone roads, and I was killing it at the gym, I figured I'd just carry everything. Just me, my toned back, and my fat backpack.</p>
+
+      <p>The secrets to solo traveling are the same secrets you need to walk through life: pack light and compartmentalize using packing cubes. I knew my stuff was coming back to the States less organized and I'd be bringing more stuff back. I arrived at Heathrow with only my Cotopaxi but left with my Cotopaxi and my Longchamp Pliage bag (love her!). I folded her up on the way there, but coming back, she was filled to the brim with all the souvenirs and knick-knacks I collected throughout my trip.</p>
+
+      <p>Also shout out to all my petite girlies out there! There's this misconception that petite women should never travel alone, but I disagree: we can pack more cute outfits in less space and get more leg room, all while having, on average, better cardiovascular health and longer lifespans.</p>
+
+      <h2>Navigating</h2>
+      <p>This was my biggest fear solo-traveling internationally. Before my trip, I opened my NYTimes app and front page, <em>London Became a Global Hub for Phone Theft</em>. Of course, I started rage baiting myself and started watching phone snatching videos. The two chatty British guys on my flight to England were like "Yes, I've seen it happen live!" or "Be careful. They target friendly, innocent-looking girls that look like you" (bruh, my stress was higher than the airplane).</p>
+
+      <p>Thankfully, I am writing this, phone in hand, safely back in the States! I did not see any phone snatchings happen, but I also did not take any chances. I bought a phone wristlet, held my phone tight everywhere I traveled, and went into the shops when I needed to look at my Google Maps. I stayed acutely aware of my surroundings and asked friendly-looking people for directions instead of loosely looking at my phone while walking.</p>
+
+      <p>Being aware that pickpocketers and phone snatchers exist made me act more careful. Statistically, if you did not get your phone stolen, you wouldn't post about it online. Also, those who are posting their travels and experiences are more likely to get their phone snatched cause they have their phone out more!</p>
+
+      <p>London, and all the places I visited tbh, were super safe and walkable. The tube and bus are easy to use – just tap Apple Pay! Pinning all the places I wanted to visit on Google Maps made it easy to see what was in the area, and I knocked out all my pinned spots, simply because touristy areas are close by.</p>
+
+      <h2>Top 5 Attractions</h2>
+    </div>
+
+    <!-- Attractions Carousel -->
+    <div class="carousel-section fade-in" id="attractions-carousel">
+      <div class="carousel-wrapper">
+        <div class="carousel-slides" id="attractions-slides">
+
+          <div class="carousel-slide">
+            <div class="carousel-img-placeholder">
+              <span class="placeholder-icon">🗿</span>
+              <span class="placeholder-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-subtitle">Prehistorical · Ancestral · Frolicking</div>
+              <div class="carousel-title">Stonehenge</div>
+              <div class="carousel-desc">For all my fellow history buffs, you would know that Chapter 1 of history books always includes a snippet about Stonehenge. Something about it felt sacred and like I was part of something bigger, especially being there myself. I walked from Stonehenge to the visitor center, and that was the most free and at peace I've felt in a long time.</div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-img-placeholder">
+              <span class="placeholder-icon">🚤</span>
+              <span class="placeholder-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-subtitle">Modern · Rock music · Speedboat</div>
+              <div class="carousel-title">Thames Rockets</div>
+              <div class="carousel-desc">Exactly opposite of Stonehenge, but my 2nd favorite attraction. Something about being on the cloudy Thames going 50 mph under the London Bridge and Tower Bridge speeding past the ferries. Another pro of solo traveling — you can book last minute cause plans for 1 are easier than plans for 4.</div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-img-placeholder">
+              <span class="placeholder-icon">🚣</span>
+              <span class="placeholder-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-subtitle">Calm · Sunny · Relaxing</div>
+              <div class="carousel-title">Punting on the River Cam</div>
+              <div class="carousel-desc">What a cool tradition. I would totally do it again. Everyone is on the river — saw a Bachelorette party, a canoe race, and a ton of punters. It's making me excited for boat and paddleboard season!</div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-img-placeholder">
+              <span class="placeholder-icon">🏛️</span>
+              <span class="placeholder-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-subtitle">Extensive · Controversial · Introvert</div>
+              <div class="carousel-title">British Museum</div>
+              <div class="carousel-desc">Bought the all inclusive tours from their app. It's self paced so I could 2x the whole exhibition. My favorite was the Statue of Tara. Also reserve in advance for afternoon tea (just be warned that people will watch you eat lol). I loved the grid shaped ceiling. I could spend hours here and still be critical of its many repatriation scandals.</div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-img-placeholder">
+              <span class="placeholder-icon">🎨</span>
+              <span class="placeholder-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-subtitle">Provocative · Why didn't I think of that?</div>
+              <div class="carousel-title">Banksy Statue</div>
+              <div class="carousel-desc">A new Banksy statue was erected in Central London while I was there, and I was one of the first people to see it. The statues, which show a man (seemingly a politician) being blinded by his own flag. I loved it. Banksy's medium is typically 2-D which makes me wonder: is Banksy a person or a collective? I think the latter.</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="attractions-prev" onclick="moveCarousel('attractions', -1)">←</button>
+          <div class="carousel-dots" id="attractions-dots"></div>
+          <button class="carousel-btn" id="attractions-next" onclick="moveCarousel('attractions', 1)">→</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose fade-in">
+      <h2>Shopping</h2>
+      <p>London is 1 of the 4 Fashion Euro-leaning capitals of the world (alongside Paris, NYC, and Milan). I was particularly impressed by Farm Rio, Sandro, and Aime Leon Dore. (Although who wears Farm Rio in gloomy London? Although it was so sunny when I went – I was very tempted by this top.)</p>
+
+      <h2>Eating</h2>
+      <p>Another pro of solo traveling is that a party of one can get in anywhere, even without a reservation! Plus, I can order, eat, and pay at my own pace (which is quite fast honestly).</p>
+
+      <p>British food gets a bad rap, but I thoroughly enjoyed my Scottish Egg, Sunday Roast, English Breakfast, and afternoon tea (did not care for black pudding and yorkshire pudding). London is such an international city that you'll find the best cuisine of each culture. One thing I learned about myself on this trip is that I'm a huge foodie, but only when I'm eating with others. When I'm walking a ton, my hunger hormones do not kick in… add the adrenaline of being alone in a foreign country, I had some very oddly-timed meals.</p>
+
+      <p>I do not have a strong spice tolerance. I learned the hard way after eating shakshouka, I was out for the rest of the day with the worst stomachache. That's the difficult part of solo-traveling: if you get sick, you have to listen to your body and take care of yourself. I'm proud of myself cause I persevered even when I was scared shitless that night.</p>
+    </div>
+
+    <!-- Restaurants Carousel -->
+    <div class="carousel-section fade-in" id="food-carousel">
+      <div class="carousel-wrapper">
+        <div class="carousel-slides" id="food-slides">
+
+          <div class="carousel-slide">
+            <div class="carousel-img-placeholder">
+              <span class="placeholder-icon">🦪</span>
+              <span class="placeholder-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-subtitle">Best Overall Meal</div>
+              <div class="carousel-title">Fallow</div>
+              <div class="carousel-desc">Watched this before Romeo & Juliet, and all I could think about during the play was how good the food was (Sorry Shakespeare). I ordered oysters and short ribs and tartar – damn, I still think about it. The restaurant also has a YouTube channel that I follow, so eating here was like meeting a celebrity. Definitely recommend making a reservation.</div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-img-placeholder">
+              <span class="placeholder-icon">🍖</span>
+              <span class="placeholder-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-subtitle">Best Sunday Roast</div>
+              <div class="carousel-title">The Victoria</div>
+              <div class="carousel-desc">Needed something close to Paddington station and the girls waitering were so nice! I like British hospitality because they'll chat if you want to, but they largely leave you alone. The lamb shoulder and the toffee pudding was exquisite.</div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-img-placeholder">
+              <span class="placeholder-icon">🥪</span>
+              <span class="placeholder-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-subtitle">Best Market Food</div>
+              <div class="carousel-title">The Black Pig</div>
+              <div class="carousel-desc">TikTok recommendations do know what they are talking about here. There wasn't much of a line (I did not go during peak season). "The Best One sandwich" had a splendid mix of spice, nuttiness, and meatiness. Tastes better one day later for some reason.</div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-img-placeholder">
+              <span class="placeholder-icon">🍳</span>
+              <span class="placeholder-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-subtitle">Best Breakfast & Best Hospitality</div>
+              <div class="carousel-title">The Wellington</div>
+              <div class="carousel-desc">Did you know you can stay overnight in a pub? It's so convenient to go watch football (American soccer) and cheer with random people, order a salad, and go back upstairs to your room after having a quarter pint of Guinness!</div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-img-placeholder">
+              <span class="placeholder-icon">🍺</span>
+              <span class="placeholder-label">Photo coming soon</span>
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-subtitle">Best Company & Best Pub</div>
+              <div class="carousel-title">The Fox Inn</div>
+              <div class="carousel-desc">The last weekend of my solo-trip I spent in the Cotswold. The effects of loneliness were starting to get to me, but the nicest mom-and-son duo (shoutout Barb and Stuart) invited me to sit with them and we had the best time! I was beaming when they told me how impressed they were when I was traveling by myself through the Cotswolds. Then, my AirBnB picked me up so I wouldn't have to walk home in the rain. Highlight of my trip.</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="food-prev" onclick="moveCarousel('food', -1)">←</button>
+          <div class="carousel-dots" id="food-dots"></div>
+          <button class="carousel-btn" id="food-next" onclick="moveCarousel('food', 1)">→</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span class="footer-left">© 2026 Aimee Xu</span>
+      <div class="footer-links">
+        <a href="https://medium.com/@aimxu" target="_blank">Medium</a>
+        <a href="https://youtube.com/@aimxu" target="_blank">YouTube</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Carousel state
+    const state = { attractions: 0, food: 0 };
+    const counts = { attractions: 5, food: 5 };
+
+    function buildDots(id) {
+      const container = document.getElementById(id + '-dots');
+      for (let i = 0; i < counts[id]; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.onclick = () => goToSlide(id, i);
+        container.appendChild(dot);
+      }
+    }
+
+    function updateCarousel(id) {
+      const slides = document.getElementById(id + '-slides');
+      slides.style.transform = `translateX(-${state[id] * 100}%)`;
+      document.querySelectorAll(`#${id}-dots .carousel-dot`).forEach((d, i) => {
+        d.classList.toggle('active', i === state[id]);
+      });
+      document.getElementById(id + '-prev').disabled = state[id] === 0;
+      document.getElementById(id + '-next').disabled = state[id] === counts[id] - 1;
+    }
+
+    function moveCarousel(id, dir) {
+      state[id] = Math.max(0, Math.min(counts[id] - 1, state[id] + dir));
+      updateCarousel(id);
+    }
+
+    function goToSlide(id, index) {
+      state[id] = index;
+      updateCarousel(id);
+    }
+
+    // Init carousels
+    buildDots('attractions');
+    buildDots('food');
+    updateCarousel('attractions');
+    updateCarousel('food');
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
