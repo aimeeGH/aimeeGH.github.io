@@ -132,6 +132,21 @@
       .nav-links { gap: 1rem; }
       .carousel-img, .carousel-img-placeholder { height: 220px; }
     }
+  .toc {
+  background: var(--sage-light);
+  border: 0.5px solid var(--sage-mid);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.toc-label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 0.75rem;
+}
+.toc-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.toc-links a { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+.toc-links a:hover { color: var(--sage); }
   </style>
 </head>
 <body>
@@ -158,6 +173,20 @@
       </div>
     </div>
 
+  <img src="uk-hero-collage.jpeg" alt="UK solo trip collage by Aimee Xu" style="width:100%; border-radius:12px; margin-bottom:2rem;" />
+
+<div class="toc">
+  <div class="toc-label">In this post</div>
+  <ul class="toc-links">
+    <li><a href="#going-solo">Going Solo</a></li>
+    <li><a href="#planning">Planning</a></li>
+    <li><a href="#packing">Packing</a></li>
+    <li><a href="#navigating">Navigating</a></li>
+    <li><a href="#attractions">Top 5 Attractions</a></li>
+    <li><a href="#shopping">Shopping</a></li>
+    <li><a href="#eating">Eating</a></li>
+  </ul>
+</div>
     <div class="prose fade-in">
       <p>When I go on vacation, I'm typically a follower. I'm just someone who's down to vibe: nature, cityscape, museums, food. I don't mind letting others take the reins when travelling, so that way, I can go with the flow, turn off my brain, and relax.</p>
 
@@ -167,17 +196,17 @@
 
       <p>Also, making my own money means I get to spend it doing whatever the hell I want to do. It was time to go solo.</p>
 
-      <h2>Going Solo</h2>
+      <h2 id="going-solo">Going Solo</h2>
       <p>So what did I decide to do? Go solo-traveling to England!</p>
 
       <p>I chose the UK because my good friend is studying at Cambridge, and two, because I love a good British accent. But seriously, having no language barrier was important to me because I wanted to be able to ask for help and directions without fumbling with Google Translate. On my first EuroTrip to France and Italy, my multilingual boyfriend carried. Now, I only had myself.</p>
 
-      <h2>Planning</h2>
+     <h2 id="planning">Planning</h2>
       <p>Working a demanding job meant limited time to plan. Call me a grandma, but I prefer reading travel books and blogs over sourcing ideas via TikTok and short-form content. The hidden spots that go viral on TikTok become overcrowded tourist traps by the next week. Plus, many brands and influencers target ads rather than offering genuine advice.</p>
 
       <p>In the weeks leading up to my trip, I read how to find affordable hotel chains in Central London, how to navigate the tube and double-decker buses, and learned common British phrases. I saved all the places I wanted to visit in a Google Maps folder (super clutch). Instead of having a strict hourly breakdown, I created themes for each day: "Camaraderie in Cambridge", "Frolicking in Stonehenge", "Romanticizing the Cotswolds", and "Meandering through London." Thus, I wouldn't get stressed out if I was running behind schedule. I only had strict times on the stuff I had booked in advance.</p>
 
-      <h2>Packing</h2>
+      <h2 id="packing">Packing</h2>
       <p>I did my 7-day UK trip with a Cotopaxi 32L Mente Daypack. That's it!</p>
 
       <p>Europe is way older than the US, and the roads reflect that. Since the places I visited also had cobblestone roads (and I was killing it at the gym), I figured I'd just carry everything. Just me, my toned back, and my fat backpack.</p>
@@ -186,7 +215,7 @@
 
       <p>Also, shout out to all my petite girlies out there! There's this misconception that petite women should never travel alone, but I disagree: we can pack more cute outfits in less space and get more leg room, all while having, on average, better cardiovascular health and longer lifespans.</p>
 
-      <h2>Navigating</h2>
+      <h2 id="navigating">Navigating</h2>
       <p>This was my biggest fear about solo-traveling internationally. Before my trip, I opened my NYTimes app and front page, <em>London Became a Global Hub for Phone Theft</em>. Of course, I started rage-baiting myself and began watching phone snatching videos. The two chatty British guys on my flight to England were like "Yes, I've seen it happen live!" or "Be careful. They target friendly, innocent-looking girls that look like you" (bruh, my stress was higher than the airplane).</p>
 
       <p>Thankfully, I am writing this, phone in hand, and safely back in the States! I did not see any phone snatchings happen, but I also did not take any chances. I bought a phone wristlet, held my phone tight everywhere I traveled, and went into the shops when I needed to look at my Google Maps. I stayed acutely aware of my surroundings and asked friendly-looking people for directions instead of loosely looking at my phone while walking.</p>
@@ -195,7 +224,7 @@
 
       <p>London, and all the places I visited tbh, were super safe and walkable. The tube and bus are easy to use – just tap Apple Pay! Pinning all the places I wanted to visit on Google Maps made it easy to see what was in the area, and I knocked out all my pinned spots, simply because touristy areas are close by.</p>
 
-      <h2>Top 5 Attractions</h2>
+      <h2 id="attractions">Top 5 Attractions</h2>
     </div>
 
     <!-- Attractions Carousel -->
@@ -258,11 +287,11 @@
     </div>
 
     <div class="prose fade-in">
-      <h2>Shopping</h2>
+     <h2 id="shopping">Shopping</h2>
       <img src="shopping-banner.jpeg" alt="Shopping in London — Aime Leon Dore and Farm Rio" style="width:100%; border-radius:12px; margin-bottom:1.5rem;" />
       <p>London is 1 of the 4 Eurocentric Fashion Capitals of the world (alongside Paris, NYC, and Milan). I was particularly impressed by Farm Rio, Sandro, and Aime Leon Dore. (Although who wears Farm Rio in gloomy London? Although it was so sunny when I went, and I was very tempted to buy this $200 top.)</p>
 
-      <h2>Eating</h2>
+      <h2 id="eating">Eating</h2>
       <p>Another pro of solo traveling is that a party of one can get in anywhere, even without a reservation! Plus, I can order, eat, and pay at my own pace (which is quite fast, honestly).</p>
 
       <p>British food gets a bad rap, but I thoroughly enjoyed my Scottish Egg, Sunday Roast, English Breakfast, and afternoon tea (did not care for black pudding and Yorkshire pudding). London is such an international city that you'll find the best cuisine from each culture. One thing I learned about myself on this trip is that I'm a huge foodie, but only when I'm eating with others. When I'm walking a ton, my hunger hormones do not kick in… add the adrenaline of being alone in a foreign country, I had some very oddly-timed meals.</p>
