@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Being Asian American Will Always Be Cool — Aimee Xu</title>
+  <meta name="description" content="A reflection on growing up Asian American, the model minority myth, and the superpowers of being a third-culture kid. By Aimee Xu." />
+  <meta name="author" content="Aimee Xu" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --sage: #7a9e7e;
+      --sage-light: #eef3ee;
+      --sage-mid: #b8cfba;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --border: rgba(0,0,0,0.1);
+      --bg: #faf8f4;
+      --card-bg: #ffffff;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 0 1.25rem; border-bottom: 0.5px solid var(--border); margin-bottom: 3rem;
+    }
+    .nav-name { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--sage); }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--text-muted); text-decoration: none;
+      margin-bottom: 2rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--sage); }
+
+    .article-header { margin-bottom: 2.5rem; }
+    .article-tag {
+      display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--sage-light); color: var(--sage);
+      padding: 3px 10px; border-radius: 20px; font-weight: 500; margin-bottom: 1rem;
+    }
+    .article-header h1 {
+      font-family: 'Lora', serif; font-size: 32px; font-weight: 500;
+      line-height: 1.3; color: var(--text); margin-bottom: 1rem;
+    }
+    .article-meta { font-size: 13px; color: var(--text-muted); }
+    .article-meta span { margin-right: 1.5rem; }
+
+    .prose { font-size: 16px; line-height: 1.85; color: var(--text); }
+    .prose p { margin-bottom: 1.5rem; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 500; }
+
+    .superpower {
+      background: var(--card-bg);
+      border: 0.5px solid var(--border);
+      border-left: 3px solid var(--sage);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .superpower-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem;
+    }
+    .superpower-title {
+      font-family: 'Lora', serif; font-size: 17px; font-weight: 500;
+      color: var(--text); margin-bottom: 0.75rem;
+    }
+    .superpower-desc { font-size: 15px; color: var(--text-muted); line-height: 1.75; }
+
+    .pullquote {
+      font-family: 'Lora', serif; font-size: 20px; font-style: italic;
+      color: var(--sage); line-height: 1.6;
+      border-top: 0.5px solid var(--sage-mid);
+      border-bottom: 0.5px solid var(--sage-mid);
+      padding: 1.5rem 0; margin: 2.5rem 0;
+      text-align: center;
+    }
+
+    footer {
+      padding: 1.5rem 0; border-top: 0.5px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; margin-top: 3rem;
+    }
+    .footer-left { font-size: 12px; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--sage); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 560px) {
+      .article-header h1 { font-size: 24px; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="nav-name">Aimee Xu</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="blog.html">Writing</a></li>
+        <li><a href="piano.html">Piano</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="blog.html" class="back-link">← All posts</a>
+
+    <div class="article-header fade-in">
+      <span class="article-tag">Personal</span>
+      <h1>Being Asian American Will Always Be Cool</h1>
+      <div class="article-meta">
+        <span>Aimee Xu</span>
+        <span>May 2026</span>
+        <span>AAPI Heritage Month</span>
+      </div>
+    </div>
+
+    <div class="prose fade-in">
+      <p>In eighth grade, I remember sitting next to another Asian girl who straight up said "I wish I was white. Life would be much easier." At 13 years old, this was heartbreaking to hear because while I could see where she was coming from, I could not relate.</p>
+
+      <p>You see, I was in high school before K-Pop Demon Hunters and K-dramas were mainstream, before being Asian was considered "cool" like it is today. Andrew Yang once mentioned how his kids, unlike when he was growing up, never think about being Asian as being uncool. I get it. At least for me, growing up Asian American was the best of both worlds: I could go to school with my friends and chase the American dream, then go home to eat the most flavorful food with my Shanghainese family.</p>
+
+      <p>I didn't mind the stereotypes — heck, I was fine with how Asians had somehow been designated model minority status. (Like yes, I'm good at math, I love dumplings, and I'll be rich one day.) Except, I later learned the model minority is not a badge of honor: it's a myth and a term that seeks to divide and pit racial minorities against each other.</p>
+
+      <p>The struggles I encountered weren't surface-level, but rather from the cultural disconnect of being born to parents born on the other side of the world. Compared to the average American family who has lived here for 3 generations, we just knew fewer people and had less cultural context. For example, being a "double-dipper" called out my eating habits more than recognized how strong of a swimmer I was. Or how this one kid made fun of the way my delicious lunch smelled when his breath smelled like stale wonderbread. Or how using 2000s Rom-Com tactics on your crush is cute when you're Jennifer Aniston, not when you're a pimple-faced Chinese girl.</p>
+
+      <p>Over the years, I realized how much of a superpower being a third-culture Asian kid is. Here are three:</p>
+    </div>
+
+    <div class="fade-in">
+      <div class="superpower">
+        <div class="superpower-label">Superpower 01</div>
+        <div class="superpower-title">The Power of Building Community</div>
+        <div class="superpower-desc">While my parents did not have any bio-family when they immigrated, they got to choose the village that ultimately raised my sister and me — a culmination of my mom's host family, our warm neighbor Linda, and other immigrant families in my hometown. This, in turn, made me someone who always seeks and builds community; I can see past cultural borders as I've walked them my whole life. As international relations, specifically between China and the US, take center stage, I see myself in a unique position to share my experiences, everything from food to financials, a background that has landed me in countless boardrooms and sent me jet-setting across the world.</div>
+      </div>
+
+      <div class="superpower">
+        <div class="superpower-label">Superpower 02</div>
+        <div class="superpower-title">The Power of Nuance</div>
+        <div class="superpower-desc">Growing up in an individualistic country and being raised in a collective culture, I have learned how to balance my own needs while sacrificing for the greater good. America taught me I should prioritize myself without feeling guilty, whereas my ancestors showed me how the strongest never walk alone.</div>
+      </div>
+
+      <div class="superpower">
+        <div class="superpower-label">Superpower 03</div>
+        <div class="superpower-title">The Power of Knowing Thyself</div>
+        <div class="superpower-desc">I have always been deeply introspective and perceptive (perhaps to a fault), a strength that many eldest daughters of immigrants possess. We couldn't just "be" — we had to learn "how to be." If I could give my younger self some advice, it would be to put less energy into becoming someone others would like and use it to learn about herself. (Cause you've always been freakin' incredible!) To move the sticky note that reads "Please love me" from her forehead to the mirror.</div>
+      </div>
+    </div>
+
+    <div class="pullquote fade-in">
+      "To move the sticky note that reads 'Please love me' from her forehead to the mirror."
+    </div>
+
+    <div class="prose fade-in">
+      <p>This AAPI Month, you heard it first from me: I am the proud eldest daughter of hardworking immigrants, and being Asian American will always be cool. Kid Aimee taught me that.</p>
+    </div>
+
+    <footer>
+      <span class="footer-left">© 2026 Aimee Xu</span>
+      <div class="footer-links">
+        <a href="https://medium.com/@aimxu" target="_blank">Medium</a>
+        <a href="https://youtube.com/@aimxu" target="_blank">YouTube</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
