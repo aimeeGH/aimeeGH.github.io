@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jimmy O. Yang is my celebrity crush — Aimee Xu</title>
+  <meta name="description" content="On Jimmy O. Yang, Silicon Valley, Big and Tall, and how one comedian made the Asian immigrant third-culture experience feel seen. By Aimee Xu." />
+  <meta name="author" content="Aimee Xu" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --sage: #7a9e7e;
+      --sage-light: #eef3ee;
+      --sage-mid: #b8cfba;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --border: rgba(0,0,0,0.1);
+      --bg: #faf8f4;
+      --card-bg: #ffffff;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 0 1.25rem; border-bottom: 0.5px solid var(--border); margin-bottom: 3rem;
+    }
+    .nav-name { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--sage); }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--text-muted); text-decoration: none;
+      margin-bottom: 2rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--sage); }
+
+    .article-header { margin-bottom: 2.5rem; }
+    .article-tag {
+      display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--sage-light); color: var(--sage);
+      padding: 3px 10px; border-radius: 20px; font-weight: 500; margin-bottom: 1rem;
+    }
+    .article-header h1 {
+      font-family: 'Lora', serif; font-size: 32px; font-weight: 500;
+      line-height: 1.3; color: var(--text); margin-bottom: 1rem;
+    }
+    .article-meta { font-size: 13px; color: var(--text-muted); }
+    .article-meta span { margin-right: 1.5rem; }
+
+    .prose { font-size: 16px; line-height: 1.85; color: var(--text); }
+    .prose p { margin-bottom: 1.5rem; }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 500; }
+
+    .pullquote {
+      font-family: 'Lora', serif; font-size: 20px; font-style: italic;
+      color: var(--sage); line-height: 1.6;
+      border-top: 0.5px solid var(--sage-mid);
+      border-bottom: 0.5px solid var(--sage-mid);
+      padding: 1.5rem 0; margin: 2.5rem 0;
+      text-align: center;
+    }
+    .pullquote cite {
+      display: block; font-family: 'Inter', sans-serif; font-style: normal;
+      font-size: 12px; color: var(--text-muted); margin-top: 0.75rem;
+    }
+
+    footer {
+      padding: 1.5rem 0; border-top: 0.5px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; margin-top: 3rem;
+    }
+    .footer-left { font-size: 12px; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--sage); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 560px) {
+      .article-header h1 { font-size: 24px; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="nav-name">Aimee Xu</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="blog.html">Writing</a></li>
+        <li><a href="piano.html">Piano</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="blog.html" class="back-link">← All posts</a>
+
+    <div class="article-header fade-in">
+      <span class="article-tag">Personal</span>
+      <h1>Jimmy O. Yang is my celebrity crush</h1>
+      <div class="article-meta">
+        <span>Aimee Xu</span>
+        <span>Feb 2026</span>
+        <span>5 min read</span>
+      </div>
+    </div>
+
+    <div class="prose fade-in">
+      <p>As a motivated child, I believed that I could be anything: a doctor, an engineer, an astronaut&hellip; anything except a stand-up comedian. One, because that wasn't a "real job" by any Asian parent standards. But mainly because I didn't feel like I had anything funny or worthy to share. I was, by every stretch of the imagination, the stereotypical Asian kid Hollywood would cast as "nerdy, reliable background character": I loved math, piano, and ate fried rice out of a pink Hello Kitty thermos.</p>
+
+      <p>That was where my story began and ended&hellip; until I encountered Jimmy O. Yang.</p>
+
+      <p>My first introduction to Jimmy was in HBO's <em>Silicon Valley</em>, where he plays Jian Yang, the witty Chinese immigrant living rent-free in my heart and in Erlich Bachman's Santa Clara incubator. I'm not sure which came first: Jian Yang or Jimmy O. Yang? Did they name the character based on the actor, or does Jimmy coincidentally have the same name as the character he was cast as? Either way, it was meant to be &mdash; Jimmy's comedic timing and delivery secured his role from a season 1 extra to a series regular and fan favorite.</p>
+
+      <p>While Silicon Valley is widely considered Jimmy's breakout role, he had been hustling since he was a new-grad. Turning down a job at Morgan Stanley upon graduating from UCSD, he moved into a tiny LA apartment with 3 other struggling actors to follow his dreams. During his <em>How to American</em> book tour, Yang recounts, "It's probably better to disappoint my parents for a couple of years than to disappoint myself for the rest of my life."</p>
+
+      <p>Fast forward fifteen years, and he is booking roles in major films such as "Love Hard", "Patriots Day", and "Crazy Rich Asians", selling out multiple shows internationally, and apparently serving as a nepo acting agent for his dad. This week, I had the pleasure of watching him live in Seattle at the Paramount Theatre on his <em>Big and Tall</em> tour. Seattle is also where he filmed his debut stand-up special, <em>Good Deal</em>!</p>
+
+      <p>My parents and I do not share a ton of overlap when it comes to pop culture. I get it, different generations, countries, and celebrities. They have Teresa Teng, I have Kim Kardashian. When you look at what overlaps in our celebrity Venn Diagram, you are left with a smiling, lovable national treasure, Jimmy O. Yang.</p>
+
+      <p>Even my dad, the most chronically offline man you will never meet, regularly quotes his work (not because he's seen all of Jimmy's sets, but because he is the old Chinese man Jimmy is talking about). For example, my parents call me "Aimee-a" (which is confusing because it also means "over there" in Shanghainese). Hearing Jimmy start his jokes with "Jimmy-a" was more than a quick laugh for me; it was seeing my story come to life on the stage.</p>
+
+      <p>His new set, <em>Big and Tall</em>, is a huge hit. As I walked into the Paramount Theatre, I heard a smattering of Mandarin, Cantonese, and English. Like, was I in Seattle or Hong Kong?</p>
+
+      <p>The set recounts the trials and tribulations of dating ABGs vs ABCs (Jimmy, I can be both for you), American vs Korean karaoke (which involves a man walking his dogs for some reason), his parents specifically not asking for business class flights and Louis Vuitton bags (hint: Chinese parents specifically not asking means asking), and the decades-long plastic bag collection casually sitting in every Asian person's home (practicality, not poverty).</p>
+
+      <p>What makes Jimmy such an icon is that he portrays the Asian immigrant third-culture experience with a nuance that many of us didn't see growing up on screen. The thing about stereotypes is that they do not come from nowhere. Yes, many of us are great at math and piano and violin. However, it's how Yang dives deeper, allowing the audience to step into his own story that makes the Asian representation genuine and cathartic, rather than unoriginal and overdone.</p>
+
+      <p>Jimmy made us realize we were so much more than that one Chinese kid. We were verbally abused, overfed, and frugally raised by our hardworking parents. Although many of us do not know what the words "I love you" sound like, we know what it's like to come home to a warm 5-course meal with freshly cut fruit every night. We know the value of a good deal when we see one (typically at Costco) and to never buy anything full price or pay for shipping. We know to always fight for the bill or secretly sneak off to the bathroom to pay for it. We know the joy of receiving a TI-84 calculator for our 15th birthday (Chinese version of a Quincea&ntilde;era). While we may never know all the sacrifices our parents made, Jimmy taught us that these stories are worth sharing, and we can also laugh about them.</p>
+
+      <p>Oh, and did I mention, he can cook? Controversial in 2026, but humor over height any day.</p>
+
+      <p>After the show, I admitted to my dad that Jimmy O. Yang is my celebrity crush. He said, "Oh, Auntie Peggy is related to him. So you're technically related to him."</p>
+
+      <p>Well, shit, we are not helping the allegations that all Chinese people are related. Whatever, you best believe I will be pulling the distant relative card to get front-row tickets to his next show.</p>
+
+      <p>On a deeper note, I have noticed I (and a lot of other immigrants) hold shame in various ways: Shame of being a disappointment, shame of having an accent or not speaking English, shame of not assimilating. This is a hot topic in 2026, where geopolitics, the Winter Olympics, increasing polarization, and what it means to be a "true American" are especially contentious.</p>
+
+      <p>It's only in the United States, where, in less than a month, I can watch Bad Bunny perform at the Super Bowl in Santa Clara, see Alysa Liu win gold in Cortina d'Ampezzo, celebrate Chinese New Year with my family in Fresno, and have Jimmy O. Yang validate my life experiences in Seattle. Bad Bunny, Alysa, and Jimmy represent the American dream.</p>
+
+      <p>Not a dream where we must "own the left/right", not a country where we fight in the comments sections, not a land where we are so glued to our devices we forget what touching grass feels like, and not a world where we take life too seriously. Instead, an America where we are determined to follow our passions, live out our values, and optimize for J.O.Y.</p>
+    </div>
+
+    <div class="pullquote fade-in">
+      "Joy does not simply happen to us. We have to choose joy and keep choosing it every day."
+      <cite>&mdash; Henri Nouwen</cite>
+    </div>
+
+    <div class="prose fade-in">
+      <p>This Chinese New Year, I learned the American Dream is about dancing to music in a language you can't understand, digging out your old ice skates, and realizing that you can, in fact, be a stand-up comedian when you grow up.</p>
+    </div>
+
+    <footer>
+      <span class="footer-left">© 2026 Aimee Xu</span>
+      <div class="footer-links">
+        <a href="https://medium.com/@aimxu" target="_blank">Medium</a>
+        <a href="https://youtube.com/@aimxu" target="_blank">YouTube</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

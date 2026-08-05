@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Courage to Be Disliked — Aimee Xu</title>
+  <meta name="description" content="A reflection on Kishimi and Koga's 'The Courage to Be Disliked' — separating tasks, letting go of the past, and learning to want things without filtering them through what other people will think. By Aimee Xu." />
+  <meta name="author" content="Aimee Xu" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --sage: #7a9e7e;
+      --sage-light: #eef3ee;
+      --sage-mid: #b8cfba;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --border: rgba(0,0,0,0.1);
+      --bg: #faf8f4;
+      --card-bg: #ffffff;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 0 1.25rem; border-bottom: 0.5px solid var(--border); margin-bottom: 3rem;
+    }
+    .nav-name { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--sage); }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--text-muted); text-decoration: none;
+      margin-bottom: 2rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--sage); }
+
+    .article-header { margin-bottom: 2.5rem; }
+    .article-tag {
+      display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--sage-light); color: var(--sage);
+      padding: 3px 10px; border-radius: 20px; font-weight: 500; margin-bottom: 1rem;
+    }
+    .article-header h1 {
+      font-family: 'Lora', serif; font-size: 32px; font-weight: 500;
+      line-height: 1.3; color: var(--text); margin-bottom: 1rem;
+    }
+    .article-meta { font-size: 13px; color: var(--text-muted); }
+    .article-meta span { margin-right: 1.5rem; }
+
+    .prose { font-size: 16px; line-height: 1.85; color: var(--text); }
+    .prose p { margin-bottom: 1.5rem; }
+    .prose h2 {
+      font-family: 'Lora', serif; font-size: 20px; font-weight: 500;
+      color: var(--text); margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border);
+    }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 500; }
+
+    .pullquote {
+      font-family: 'Lora', serif; font-size: 20px; font-style: italic;
+      color: var(--sage); line-height: 1.6;
+      border-top: 0.5px solid var(--sage-mid);
+      border-bottom: 0.5px solid var(--sage-mid);
+      padding: 1.5rem 0; margin: 2.5rem 0;
+      text-align: center;
+    }
+
+    footer {
+      padding: 1.5rem 0; border-top: 0.5px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; margin-top: 3rem;
+    }
+    .footer-left { font-size: 12px; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--sage); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 560px) {
+      .article-header h1 { font-size: 24px; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="nav-name">Aimee Xu</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="blog.html">Writing</a></li>
+        <li><a href="piano.html">Piano</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="blog.html" class="back-link">← All posts</a>
+
+    <div class="article-header fade-in">
+      <span class="article-tag">Personal</span>
+      <h1>The Courage to Be Disliked</h1>
+      <div class="article-meta">
+        <span>Aimee Xu</span>
+        <span>May 2026</span>
+        <span>6 min read</span>
+      </div>
+    </div>
+
+    <div class="prose fade-in">
+      <p>Reading for fun was a foreign concept to me, up until a year ago. Decades of assigned reading made books the last thing I gravitated to in my spare time.</p>
+
+      <p>That changed when I deleted Instagram. Suddenly, I had extra time on my hands&hellip; to scroll on Pinterest. To cosplay being productive, I make Pinterest boards for my dream home, cute outfits, and books I would one day read.</p>
+
+      <p>One morning, I scrolled through my saved books on Pinterest for that cheap dopamine hit and stumbled upon "The Courage to Be Disliked" by Ichiro Kishimi and Fumitake Koga.</p>
+
+      <p>The title intrigued me &mdash; how could anyone be ok with being disliked? All I want is to make others happy, to be liked by people, so I will have many friends and be seen as successful. So my parents and teachers, who invested their time in me, will be proud. Feeling a sense of belonging is essential to modern living, and agreeableness is the cheat code.</p>
+
+      <p>My friends often call me the most positive or happiest person they know. I can smile my way out of any nuanced situation or bad day. Although I often wonder why they think that&hellip; I want to feel accepted, not rock the boat, so my friends will keep me around. I'd rather act like everything is okay than be honest with myself and others. You see, being likeable is kind of my brand. But that's not a brand. That's a blank canvas afraid of getting painted. Are any ideas my own or just a projection of what others accept and expect? As you may tell, this is the thesis for my quarter-life crisis.</p>
+
+      <p>Being likeable depends on the perception of vastly different people with different backgrounds. It puts the fate of one's self-esteem into the hands of 8 billion others who have different opinions on just about everything. Whether it's my politics, my faith, or my face, there are bound to be people out there who will not like me for me &mdash; "The Courage of Being Disliked" taught me that that's not my problem.</p>
+
+      <h2>The Root of all Problems</h2>
+      <p>Authors Kishimi and Koga explain that one's problems all stem from our interpersonal relationships: How we stack up against others, where we fit in our communities, and if we will be accepted by others. This may have been useful when our ancestors were a part of close-knit nomadic tribes who would be abandoned if they weren't acutely aware of others' perceptions of them. Nowadays, comparison and fear of being cancelled prevent us from living authentically.</p>
+
+      <p>Of course, our problems don't magically go away by becoming a recluse (as much as I sometimes wish it were); we are still social creatures that depend on each other. "The Courage to be Disliked" has an alternative solution: the separation of tasks.</p>
+
+      <h2>Separation of Tasks</h2>
+      <p>Unhappiness arises from intervening in others' tasks or having others intervene in yours. You are responsible only for your own actions; others' opinions of you are their tasks. Kishimi and Koga argue that living a perfect life by trying to please everyone is not only impossible; it's a recipe for a lifetime of unhappiness.</p>
+
+      <p>It's not my job to wonder what others are thinking of me, nor is it to influence or change their perception &mdash; that's their job. Trying to get everyone to like me is an intrusion on others' tasks. In Gen-Z terms, let yourself exist rent-free in their minds! Don't start paying rent!</p>
+
+      <p>Having the courage to be disliked by others has never been more challenging. Social media has gamified belonging such that if no one likes your post, it implies there is something inherently unlikable about you &mdash; and that you need to reinvent yourself as more likeable.</p>
+
+      <p>Not getting many matches on dating apps? &mdash; Maybe if you took away everything that made you unique and conformed to conventional beauty standards, you'd become more likeable.</p>
+
+      <p>Holding a more nuanced opinion about almost anything could lead to banishment from the online communities we hold so near and dear to us.</p>
+
+      <p>Fear of cancel culture can lead to widespread self-censorship, limiting contrarian opinions in an increasingly polarised, echo-chamber-filled society.</p>
+
+      <p>We praise authenticity, but only if it's curated and marketed correctly.</p>
+
+      <h2>My working solution</h2>
+      <p>To break the chains that were others' perceptions, I needed to focus on my own tasks relentlessly and ditch other people's tasks. For me, I needed to spend less time on social media (which blurs the separation of tasks) and more time outside in the real world. I needed to spend less time thinking about people from my past, wondering if they were thinking about me, and strengthening my relationships in the present with those who undoubtedly love me unconditionally, despite my faults and imperfections. I needed to redefine what a rich life means for me: not good grades, money, status, job title, or looks, but one where I had control of my narrative and which direction to take it.</p>
+
+      <h2>What you tell yourself becomes your reality</h2>
+      <p>Do you feel defined by your past? Your past struggles, traumas, and achievements? After all, our pasts may explain how we got to where we are today. Yet, Kishimi and Koga dispute this. Instead, they argue that we are a product of the present, not the past.</p>
+
+      <p>"The Courage to be Disliked" encourages us to detach from the past, specifically the self-limiting beliefs we tell ourselves. What we think becomes our reality. The more one leads with their past negative experiences, the more they remain stuck or become defined by them.</p>
+
+      <p>This was one of the most controversial points the book argues, with one of the chapters being titled "Trauma Does Not Exist". The chapter argues that individuals "fabricate anger" or use past trauma as an excuse to avoid changing their present situations. The meaning people assign to these past painful experiences continues to negatively define their lives.</p>
+
+      <p>Note that "The Courage to be Disliked" was written by two Japanese authors who may have different views about trauma and the past than the Western world. In Asian culture, it is largely about maintaining face and being humble. In collectivist cultures, fitting in and comparison are more apparent and literal. In fact, there's an emphasis on "what, like it's hard?" mentality, and to discourage talking about one's hardships.</p>
+
+      <p>In the West, many openly talk about their struggles and their pasts, even on social media, where it's viewed by millions of people. It seems that everybody these days has anxiety, ADHD, or is taking GLP-1s. Here, we love a good rags-to-riches, zero-to-hero story. Think about college admissions in the U.S. &mdash; they always seem to ask about a hardship or obstacle one overcomes (Like what if I'm a seventeen-year-old who's had a pretty average life?). Or how everyone on American Idol or America's Got Talent has a sob story, and how considerable screen time is dedicated to contestants telling it. On one hand, it's a wonderful opportunity for those who have seen major adversity to showcase their resilience. On the other hand, it signals that if you did not have something terrible happen to you, then you are unworthy or not talented, which is not the case.</p>
+
+      <p>Whether you live in an Eastern or Western society, Kishimi and Koga encourage the reader to lead with the present and assign less value to past experiences.</p>
+
+      <p>For me, I do believe trauma is real; some things that happen to us are unforgivable and unforgettable. Past hardships can bring about tremendous growth and resilience. However, Kishimi and Koga are not disputing that &mdash; they are simply saying that we must control the meaning we assign to our past and not let the past define us. We should be open-minded to new experiences, take risks, and consider opposing viewpoints. In other words, we need to master the art of starting over.</p>
+
+      <h2>I invite you to dislike me.</h2>
+      <p>I'm still figuring out how to want things without immediately filtering them through what other people will think.</p>
+
+      <p>Can I be contrarian? Can I become less likeable?</p>
+    </div>
+
+    <div class="pullquote fade-in">
+      "The courage to be disliked is about trusting that who you actually are &mdash; unoptimized, unfiltered, vulnerable, anxious, sometimes wrong &mdash; is worth showing up as."
+    </div>
+
+    <div class="prose fade-in">
+      <p>That the people worth keeping will stay even when you stop performing for them.</p>
+    </div>
+
+    <footer>
+      <span class="footer-left">© 2026 Aimee Xu</span>
+      <div class="footer-links">
+        <a href="https://medium.com/@aimxu" target="_blank">Medium</a>
+        <a href="https://youtube.com/@aimxu" target="_blank">YouTube</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
