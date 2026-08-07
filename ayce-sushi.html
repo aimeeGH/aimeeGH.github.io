@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sushi Counter 🍣</title>
+<style>
+  :root {
+    --bg: #fff8f0;
+    --card: #ffffff;
+    --ink: #2b2320;
+    --muted: #8a7a6f;
+    --accent: #e0554f;
+    --accent-dark: #c23f3a;
+    --line: #f0e4d8;
+    --gold: #e0a83e;
+    --shadow: 0 2px 8px rgba(43, 35, 32, 0.08);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 24px; }
+  h1 {
+    font-size: 1.6rem;
+    margin: 0 0 4px;
+  }
+  .subtitle { color: var(--muted); font-size: 0.9rem; }
+
+  .add-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .add-row input {
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    font-size: 1rem;
+    background: var(--card);
+  }
+  .add-row input:focus { outline: 2px solid var(--accent); }
+  .add-row button {
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: none;
+    background: var(--accent);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .add-row button:active { background: var(--accent-dark); }
+
+  .leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .rank {
+    width: 28px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .rank.first { color: var(--gold); font-size: 1.2rem; }
+  .rank.second { color: #a8a8a8; font-size: 1.2rem; }
+  .rank.third { color: #b5722f; font-size: 1.2rem; }
+
+  .name-col {
+    flex: 1;
+    min-width: 0;
+  }
+  .name {
+    font-weight: 600;
+    font-size: 1.05rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .name-input {
+    font-weight: 600;
+    font-size: 1.05rem;
+    border: none;
+    background: transparent;
+    width: 100%;
+    color: var(--ink);
+    padding: 0;
+  }
+  .name-input:focus { outline: none; border-bottom: 1px solid var(--accent); }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .step-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+  .step-btn:active { background: var(--line); }
+  .count-input {
+    width: 48px;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    color: var(--accent-dark);
+    -moz-appearance: textfield;
+  }
+  .count-input::-webkit-outer-spin-button,
+  .count-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .count-input:focus { outline: none; }
+
+  .remove-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 4px 6px;
+    line-height: 1;
+  }
+  .remove-btn:hover { color: var(--accent-dark); }
+
+  .empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 40px 20px;
+    font-size: 0.95rem;
+  }
+
+  .reset-row {
+    text-align: center;
+    margin-top: 28px;
+  }
+  .reset-row button {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .reset-row button:hover { color: var(--accent-dark); border-color: var(--accent); }
+
+  .piece-emoji { font-size: 0.8rem; color: var(--muted); margin-left: 2px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🍣 AYCE Sushi Counter 🍣</h1>
+      <div class="subtitle">Winner doesn't have to pay</div>
+    </header>
+
+    <div class="add-row">
+      <input type="text" id="new-name" placeholder="Add a friend's name..." maxlength="30" />
+      <button id="add-btn">Add</button>
+    </div>
+
+    <div class="leaderboard" id="leaderboard"></div>
+    <div class="empty" id="empty-state" style="display:none;">No friends yet — add someone above to start counting 🍣</div>
+
+    <div class="reset-row">
+      <button id="reset-btn">Reset all counts</button>
+    </div>
+  </div>
+
+<script>
+  const STORAGE_KEY = 'sushi-counter-friends';
+  const DEFAULT_NAMES = ['Aimee', 'Charles', 'Ellen', 'Kat', 'Tracy'];
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+      return DEFAULT_NAMES.map(name => ({ id: uid(), name, count: 0 }));
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function save(friends) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(friends));
+  }
+
+  let friends = load();
+
+  function uid() {
+    return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  }
+
+  function addFriend(name) {
+    name = name.trim();
+    if (!name) return;
+    friends.push({ id: uid(), name, count: 0 });
+    save(friends);
+    render();
+  }
+
+  function removeFriend(id) {
+    friends = friends.filter(f => f.id !== id);
+    save(friends);
+    render();
+  }
+
+  function updateCount(id, newCount) {
+    const f = friends.find(f => f.id === id);
+    if (!f) return;
+    f.count = Math.max(0, isNaN(newCount) ? 0 : Math.round(newCount));
+    save(friends);
+    render();
+  }
+
+  function updateName(id, newName) {
+    const f = friends.find(f => f.id === id);
+    if (!f) return;
+    f.name = newName.trim() || f.name;
+    save(friends);
+  }
+
+  function render() {
+    const board = document.getElementById('leaderboard');
+    const empty = document.getElementById('empty-state');
+    board.innerHTML = '';
+
+    if (friends.length === 0) {
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+
+    const sorted = [...friends].sort((a, b) => b.count - a.count);
+
+    sorted.forEach((f, idx) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const medals = ['🏆', '🥈', '🥉'];
+      const rank = document.createElement('div');
+      const medalClass = ['first', 'second', 'third'][idx];
+      rank.className = 'rank' + (medalClass && f.count > 0 ? ' ' + medalClass : '');
+      rank.textContent = (medalClass && f.count > 0) ? medals[idx] : (idx + 1);
+      card.appendChild(rank);
+
+      const nameCol = document.createElement('div');
+      nameCol.className = 'name-col';
+      const nameInput = document.createElement('input');
+      nameInput.className = 'name-input';
+      nameInput.value = f.name;
+      nameInput.maxLength = 30;
+      nameInput.addEventListener('change', () => updateName(f.id, nameInput.value));
+      nameInput.addEventListener('blur', () => render());
+      nameCol.appendChild(nameInput);
+      card.appendChild(nameCol);
+
+      const controls = document.createElement('div');
+      controls.className = 'controls';
+
+      const minusBtn = document.createElement('button');
+      minusBtn.className = 'step-btn';
+      minusBtn.textContent = '−';
+      minusBtn.addEventListener('click', () => updateCount(f.id, f.count - 1));
+      controls.appendChild(minusBtn);
+
+      const countInput = document.createElement('input');
+      countInput.className = 'count-input';
+      countInput.type = 'number';
+      countInput.min = '0';
+      countInput.value = f.count;
+      countInput.addEventListener('change', () => updateCount(f.id, parseInt(countInput.value, 10)));
+      controls.appendChild(countInput);
+
+      const plusBtn = document.createElement('button');
+      plusBtn.className = 'step-btn';
+      plusBtn.textContent = '+';
+      plusBtn.addEventListener('click', () => updateCount(f.id, f.count + 1));
+      controls.appendChild(plusBtn);
+
+      card.appendChild(controls);
+
+      const removeBtn = document.createElement('button');
+      removeBtn.className = 'remove-btn';
+      removeBtn.textContent = '✕';
+      removeBtn.title = 'Remove friend';
+      removeBtn.addEventListener('click', () => {
+        if (confirm(`Remove ${f.name}?`)) removeFriend(f.id);
+      });
+      card.appendChild(removeBtn);
+
+      board.appendChild(card);
+    });
+  }
+
+  document.getElementById('add-btn').addEventListener('click', () => {
+    const input = document.getElementById('new-name');
+    addFriend(input.value);
+    input.value = '';
+    input.focus();
+  });
+
+  document.getElementById('new-name').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      document.getElementById('add-btn').click();
+    }
+  });
+
+  document.getElementById('reset-btn').addEventListener('click', () => {
+    if (friends.length === 0) return;
+    if (confirm('Reset all counts to 0? Friends will stay in the list.')) {
+      friends.forEach(f => f.count = 0);
+      save(friends);
+      render();
+    }
+  });
+
+  render();
+</script>
+</body>
+</html>
