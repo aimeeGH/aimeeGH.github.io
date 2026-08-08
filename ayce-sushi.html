@@ -267,15 +267,20 @@
 
     const sorted = [...friends].sort((a, b) => b.count - a.count);
 
+    let displayRank = 0;
     sorted.forEach((f, idx) => {
+      if (idx === 0 || f.count !== sorted[idx - 1].count) {
+        displayRank = idx + 1;
+      }
+
       const card = document.createElement('div');
       card.className = 'card';
 
       const medals = ['🏆', '🥈', '🥉'];
+      const medalClass = ['first', 'second', 'third'][displayRank - 1];
       const rank = document.createElement('div');
-      const medalClass = ['first', 'second', 'third'][idx];
       rank.className = 'rank' + (medalClass && f.count > 0 ? ' ' + medalClass : '');
-      rank.textContent = (medalClass && f.count > 0) ? medals[idx] : (idx + 1);
+      rank.textContent = (medalClass && f.count > 0) ? medals[displayRank - 1] : displayRank;
       card.appendChild(rank);
 
       const nameCol = document.createElement('div');
