@@ -73,6 +73,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    will-change: transform;
   }
   .rank {
     width: 28px;
@@ -220,6 +221,7 @@
   }
 
   let friends = load();
+  const cardEls = new Map(); // friend id -> card element, kept alive across renders
 
   function uid() {
     return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
@@ -254,18 +256,103 @@
     save(friends);
   }
 
+  function createCardElement(f) {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const rank = document.createElement('div');
+    card.appendChild(rank);
+    card._rank = rank;
+
+    const nameCol = document.createElement('div');
+    nameCol.className = 'name-col';
+    const nameInput = document.createElement('input');
+    nameInput.className = 'name-input';
+    nameInput.maxLength = 30;
+    nameInput.addEventListener('change', () => updateName(f.id, nameInput.value));
+    nameInput.addEventListener('blur', () => render());
+    nameCol.appendChild(nameInput);
+    card.appendChild(nameCol);
+    card._nameInput = nameInput;
+
+    const controls = document.createElement('div');
+    controls.className = 'controls';
+
+    const minusBtn = document.createElement('button');
+    minusBtn.className = 'step-btn';
+    minusBtn.textContent = '−';
+    minusBtn.addEventListener('click', () => updateCount(f.id, f.count - 1));
+    controls.appendChild(minusBtn);
+
+    const countInput = document.createElement('input');
+    countInput.className = 'count-input';
+    countInput.type = 'number';
+    countInput.min = '0';
+    countInput.addEventListener('change', () => updateCount(f.id, parseInt(countInput.value, 10)));
+    controls.appendChild(countInput);
+    card._countInput = countInput;
+
+    const plusBtn = document.createElement('button');
+    plusBtn.className = 'step-btn';
+    plusBtn.textContent = '+';
+    plusBtn.addEventListener('click', () => updateCount(f.id, f.count + 1));
+    controls.appendChild(plusBtn);
+
+    card.appendChild(controls);
+
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'remove-btn';
+    removeBtn.textContent = '✕';
+    removeBtn.title = 'Remove friend';
+    removeBtn.addEventListener('click', () => {
+      if (confirm(`Remove ${f.name}?`)) removeFriend(f.id);
+    });
+    card.appendChild(removeBtn);
+
+    return card;
+  }
+
+  function updateCardContent(card, f, displayRank) {
+    const medals = ['🏆', '🥈', '🥉'];
+    const medalClass = ['first', 'second', 'third'][displayRank - 1];
+    card._rank.className = 'rank' + (medalClass && f.count > 0 ? ' ' + medalClass : '');
+    card._rank.textContent = (medalClass && f.count > 0) ? medals[displayRank - 1] : displayRank;
+
+    if (document.activeElement !== card._nameInput) {
+      card._nameInput.value = f.name;
+    }
+    if (document.activeElement !== card._countInput) {
+      card._countInput.value = f.count;
+    }
+  }
+
   function render() {
     const board = document.getElementById('leaderboard');
     const empty = document.getElementById('empty-state');
-    board.innerHTML = '';
 
     if (friends.length === 0) {
+      board.innerHTML = '';
+      cardEls.clear();
       empty.style.display = 'block';
       return;
     }
     empty.style.display = 'none';
 
     const sorted = [...friends].sort((a, b) => b.count - a.count);
+    const currentIds = new Set(sorted.map(f => f.id));
+
+    for (const [id, el] of cardEls) {
+      if (!currentIds.has(id)) {
+        el.remove();
+        cardEls.delete(id);
+      }
+    }
+
+    // FLIP: capture starting positions of cards already on the board
+    const firstRects = new Map();
+    for (const [id, el] of cardEls) {
+      firstRects.set(id, el.getBoundingClientRect());
+    }
 
     let displayRank = 0;
     sorted.forEach((f, idx) => {
@@ -273,63 +360,29 @@
         displayRank = idx + 1;
       }
 
-      const card = document.createElement('div');
-      card.className = 'card';
-
-      const medals = ['🏆', '🥈', '🥉'];
-      const medalClass = ['first', 'second', 'third'][displayRank - 1];
-      const rank = document.createElement('div');
-      rank.className = 'rank' + (medalClass && f.count > 0 ? ' ' + medalClass : '');
-      rank.textContent = (medalClass && f.count > 0) ? medals[displayRank - 1] : displayRank;
-      card.appendChild(rank);
-
-      const nameCol = document.createElement('div');
-      nameCol.className = 'name-col';
-      const nameInput = document.createElement('input');
-      nameInput.className = 'name-input';
-      nameInput.value = f.name;
-      nameInput.maxLength = 30;
-      nameInput.addEventListener('change', () => updateName(f.id, nameInput.value));
-      nameInput.addEventListener('blur', () => render());
-      nameCol.appendChild(nameInput);
-      card.appendChild(nameCol);
-
-      const controls = document.createElement('div');
-      controls.className = 'controls';
-
-      const minusBtn = document.createElement('button');
-      minusBtn.className = 'step-btn';
-      minusBtn.textContent = '−';
-      minusBtn.addEventListener('click', () => updateCount(f.id, f.count - 1));
-      controls.appendChild(minusBtn);
-
-      const countInput = document.createElement('input');
-      countInput.className = 'count-input';
-      countInput.type = 'number';
-      countInput.min = '0';
-      countInput.value = f.count;
-      countInput.addEventListener('change', () => updateCount(f.id, parseInt(countInput.value, 10)));
-      controls.appendChild(countInput);
-
-      const plusBtn = document.createElement('button');
-      plusBtn.className = 'step-btn';
-      plusBtn.textContent = '+';
-      plusBtn.addEventListener('click', () => updateCount(f.id, f.count + 1));
-      controls.appendChild(plusBtn);
-
-      card.appendChild(controls);
-
-      const removeBtn = document.createElement('button');
-      removeBtn.className = 'remove-btn';
-      removeBtn.textContent = '✕';
-      removeBtn.title = 'Remove friend';
-      removeBtn.addEventListener('click', () => {
-        if (confirm(`Remove ${f.name}?`)) removeFriend(f.id);
-      });
-      card.appendChild(removeBtn);
-
+      let card = cardEls.get(f.id);
+      if (!card) {
+        card = createCardElement(f);
+        cardEls.set(f.id, card);
+      }
+      updateCardContent(card, f, displayRank);
       board.appendChild(card);
     });
+
+    // FLIP: invert any position change into a transform, then play it out
+    for (const [id, el] of cardEls) {
+      const first = firstRects.get(id);
+      if (!first) continue;
+      const last = el.getBoundingClientRect();
+      const deltaY = first.top - last.top;
+      if (deltaY) {
+        el.style.transition = 'none';
+        el.style.transform = `translateY(${deltaY}px)`;
+        el.getBoundingClientRect(); // force reflow before animating
+        el.style.transition = 'transform 320ms cubic-bezier(0.2, 0, 0.2, 1)';
+        el.style.transform = '';
+      }
+    }
   }
 
   document.getElementById('add-btn').addEventListener('click', () => {
