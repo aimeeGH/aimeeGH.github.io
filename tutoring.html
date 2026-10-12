@@ -65,13 +65,21 @@
     .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 0.5px solid var(--border); }
     .section-title { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
 
-    .subjects-row { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
-    .subject-pill { flex-shrink: 0; padding: 0.6rem 1rem; border-radius: 8px; font-size: 13px; font-weight: 500; white-space: nowrap; }
-    .subject-pill-pink { background: #fde2e4; color: #b23a5c; }
-    .subject-pill-orange { background: #ffe8cd; color: #b5651d; }
-    .subject-pill-yellow { background: #fff3c4; color: #92720c; }
-    .subject-pill-green { background: var(--sage-light); color: var(--sage); }
-    .subject-pill-blue { background: #e0e7ff; color: #4c51bf; }
+    .subjects-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .subject-tile {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+      padding: 1rem 0.5rem; border-radius: 10px; font-size: 13px; font-weight: 500; text-align: center;
+    }
+    .subject-tile-emoji { font-size: 20px; }
+    .subject-tile-red { background: #ffd9d9; color: #c23b3b; }
+    .subject-tile-orange { background: #ffe3c2; color: #b5651d; }
+    .subject-tile-amber { background: #fff0b3; color: #92720c; }
+    .subject-tile-lime { background: #ddf4d1; color: #3f7d20; }
+    .subject-tile-sage { background: var(--sage-light); color: var(--sage); }
+    .subject-tile-cyan { background: #d3f3f3; color: #0f7a7a; }
+    .subject-tile-blue { background: #dce6fd; color: #3457c9; }
+    .subject-tile-indigo { background: #e5e0fb; color: #5b4fc4; }
+    .subject-tile-purple { background: #f6dff5; color: #a23ea0; }
 
     .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .split-col .section-header { margin-bottom: 1rem; }
@@ -112,6 +120,9 @@
       .nav-links { gap: 1rem; }
       .split-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .estimator-card { flex-direction: column; align-items: center; }
+      .subjects-grid3 { gap: 6px; }
+      .subject-tile { padding: 0.75rem 0.25rem; font-size: 11px; }
+      .subject-tile-emoji { font-size: 16px; }
       .hero-layout { grid-template-columns: 1fr; }
       .hero-photo { width: 100%; max-width: 280px; }
       .hero p { max-width: 100%; }
@@ -158,12 +169,16 @@
 
     <section class="section fade-in" id="subjects">
       <div class="section-header"><span class="section-title">Subjects</span></div>
-      <div class="subjects-row">
-        <span class="subject-pill subject-pill-pink">K-12 Math</span>
-        <span class="subject-pill subject-pill-orange">Algebra & Geometry</span>
-        <span class="subject-pill subject-pill-yellow">Precalc & Calculus</span>
-        <span class="subject-pill subject-pill-green">SAT/ACT Prep</span>
-        <span class="subject-pill subject-pill-blue">College Level Math</span>
+      <div class="subjects-grid3">
+        <div class="subject-tile subject-tile-red"><span class="subject-tile-emoji">🧮</span>K-12 Math</div>
+        <div class="subject-tile subject-tile-orange"><span class="subject-tile-emoji">📏</span>Algebra</div>
+        <div class="subject-tile subject-tile-amber"><span class="subject-tile-emoji">📐</span>Geometry</div>
+        <div class="subject-tile subject-tile-lime"><span class="subject-tile-emoji">📈</span>Precalc</div>
+        <div class="subject-tile subject-tile-sage"><span class="subject-tile-emoji">∫</span>Calculus</div>
+        <div class="subject-tile subject-tile-cyan"><span class="subject-tile-emoji">∫∫</span>Multivariable Calc</div>
+        <div class="subject-tile subject-tile-blue"><span class="subject-tile-emoji">🔢</span>Linear Algebra</div>
+        <div class="subject-tile subject-tile-indigo"><span class="subject-tile-emoji">📝</span>SAT Prep</div>
+        <div class="subject-tile subject-tile-purple"><span class="subject-tile-emoji">📝</span>ACT Prep</div>
       </div>
     </section>
 
@@ -174,7 +189,7 @@
           <div class="approach-list">
             <div class="approach-item">
               <span class="approach-marker">🧩 </span>
-              <span class="approach-text"><strong>Online or in-person.</strong> Happy to meet in Seattle, Bellevue, Kirkland, Redmond.</span>
+              <span class="approach-text"><strong>Online or in-person.</strong> Happy to meet in <b>Seattle, Bellevue, Kirkland, Redmond.</b></span>
             </div>
             <div class="approach-item">
               <span class="approach-marker">🧩 </span>
@@ -195,7 +210,7 @@
             </div>
             <div class="approach-item">
               <span class="approach-marker">✅ </span>
-              <span class="approach-text"><strong>800 SAT Math, 36 ACT Math.</strong><br>I understand the standardized test grind more than I like to admit.</span>
+              <span class="approach-text"><strong>800 SAT Math, 36 ACT Math.</strong><br>I understand the standardized test grind.</span>
             </div>
             <div class="approach-item">
               <span class="approach-marker">✅ </span>
@@ -223,7 +238,7 @@
         <input type="hidden" name="form_source" value="tutoring" />
         <input type="text" name="name" placeholder="Your name" required />
         <input type="email" name="email" placeholder="Your email" required />
-        <input type="text" name="subject_level" placeholder="Student's grade / subject" />
+        <input type="text" name="subject_level" placeholder="Grade / subject" />
         <textarea name="message" placeholder="What are you looking for help with?"></textarea>
         <button type="submit">Send inquiry →</button>
       </form>
