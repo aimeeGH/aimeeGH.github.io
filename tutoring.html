@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math Tutoring — Aimee Xu</title>
+  <meta name="description" content="1:1 math tutoring with Aimee Xu — algebra, geometry, precalculus, calculus, and SAT/ACT math prep for K-12 students." />
+  <meta name="author" content="Aimee Xu" />
+  <link rel="canonical" href="https://aimeexu.com/tutoring.html" />
+  <link rel="icon" type="image/jpeg" href="website-favicon.jpg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Math Tutoring — Aimee Xu" />
+  <meta property="og:description" content="1:1 math tutoring with Aimee Xu — algebra, geometry, precalculus, calculus, and SAT/ACT math prep for K-12 students." />
+  <meta property="og:url" content="https://aimeexu.com/tutoring.html" />
+  <meta property="og:image" content="https://aimeexu.com/images/tir-aimee-xu-square.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Math Tutoring — Aimee Xu" />
+  <meta name="twitter:description" content="1:1 math tutoring with Aimee Xu — algebra, geometry, precalculus, calculus, and SAT/ACT math prep for K-12 students." />
+  <meta name="twitter:image" content="https://aimeexu.com/images/tir-aimee-xu-square.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --sage: #7a9e7e;
+      --sage-light: #eef3ee;
+      --sage-mid: #b8cfba;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --border: rgba(0,0,0,0.1);
+      --bg: #faf8f4;
+      --card-bg: #ffffff;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 0 1.25rem; border-bottom: 0.5px solid var(--border); margin-bottom: 3rem;
+    }
+    .nav-name { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--sage); }
+
+    .hero { margin-bottom: 3.5rem; }
+    .hero-label { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.25rem; }
+    .hero-layout { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start; margin-bottom: 1.5rem; }
+    .hero-photo { width: 280px; aspect-ratio: 1 / 1; border-radius: 12px; object-fit: cover; }
+    .hero h1 { font-size: 26px; font-weight: 500; line-height: 1.35; color: var(--text); margin-bottom: 1.5rem; }
+    .hero p { font-size: 14px; line-height: 1.75; color: var(--text-muted); max-width: 420px; }
+    .hero-cta { text-align: right; }
+    .cta-button {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--sage); color: white; text-decoration: none;
+      border-radius: 8px; padding: 1rem 1.85rem;
+      font-size: 16px; font-weight: 500; transition: opacity 0.15s;
+    }
+    .cta-button:hover { opacity: 0.85; }
+
+    .section { margin-bottom: 3rem; }
+    .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 0.5px solid var(--border); }
+    .section-title { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+    .subjects-row { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+    .subject-pill { flex-shrink: 0; padding: 0.6rem 1rem; border-radius: 8px; font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .subject-pill-pink { background: #fde2e4; color: #b23a5c; }
+    .subject-pill-orange { background: #ffe8cd; color: #b5651d; }
+    .subject-pill-yellow { background: #fff3c4; color: #92720c; }
+    .subject-pill-green { background: var(--sage-light); color: var(--sage); }
+    .subject-pill-blue { background: #e0e7ff; color: #4c51bf; }
+
+    .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .split-col .section-header { margin-bottom: 1rem; }
+    .approach-list { display: flex; flex-direction: column; gap: 1rem; }
+    .approach-item { display: flex; gap: 0.75rem; align-items: flex-start; }
+    .approach-marker { color: var(--sage); font-size: 14px; line-height: 1.6; }
+    .approach-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+    .approach-text strong { color: var(--text); font-weight: 500; }
+
+    .estimator-card {
+      display: flex; justify-content: space-between; align-items: center; gap: 1.5rem;
+      background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem;
+    }
+    .estimator-note { font-size: 13px; color: var(--text-muted); line-height: 1.6; flex: 1; }
+    .estimator-result {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+      background: var(--sage-light); border: 0.5px solid var(--sage-mid);
+      border-radius: 10px; padding: 1.5rem; flex: 0 0 auto;
+      width: 300px; max-width: 100%; height: 100px;
+    }
+    .estimator-result-label { font-size: 12px; color: var(--text-muted); text-align: center; }
+    .estimator-result-value { font-size: 22px; font-weight: 500; color: var(--sage); white-space: nowrap; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 12px; }
+    .contact-form input, .contact-form select, .contact-form textarea { font-family: 'Inter', sans-serif; font-size: 14px; background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 8px; padding: 0.75rem 1rem; color: var(--text); outline: none; transition: border-color 0.15s; }
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--sage-mid); }
+    .contact-form textarea { resize: vertical; min-height: 100px; }
+    .contact-form button { align-self: flex-start; background: var(--sage); color: white; border: none; border-radius: 8px; padding: 0.6rem 1.25rem; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; }
+    .contact-form button:hover { opacity: 0.85; }
+
+    footer { padding: 1.5rem 0; border-top: 0.5px solid var(--border); display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .footer-left { font-size: 12px; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--sage); }
+
+    @media (max-width: 560px) {
+      .nav-links { gap: 1rem; }
+      .split-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .estimator-card { flex-direction: column; align-items: center; }
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-photo { width: 100%; max-width: 280px; }
+      .hero p { max-width: 100%; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="nav-name">Aimee Xu</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="tutoring.html">Tutoring</a></li>
+        <li><a href="blog.html">Writing</a></li>
+        <li><a href="piano.html">Piano</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero fade-in">
+      <div class="hero-label">Tutoring</div>
+      <h1> 🧮 Math that finally clicks! </h1>
+      <div class="hero-layout">
+        <img src="images/ucla-grad.jpg" alt="Aimee Xu at UCLA graduation" class="hero-photo" />
+        <div class="hero-text">
+          <p>How we feel about math comes from how it's taught and who it's taught by. After tutoring 30+ students over 5 years, I have built my approach around structured reps, sprinkled with a dose of creativity.<br><br>Whether you're the parent of an ambitious kindergartener or a college student taking multivariable calc, I got you!</p>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#contact" class="cta-button">Get in touch →</a>
+      </div>
+    </section>
+
+    <section class="section fade-in" id="subjects">
+      <div class="section-header"><span class="section-title">Subjects</span></div>
+      <div class="subjects-row">
+        <span class="subject-pill subject-pill-pink">K-12 Math</span>
+        <span class="subject-pill subject-pill-orange">Algebra & Geometry</span>
+        <span class="subject-pill subject-pill-yellow">Precalc & Calculus</span>
+        <span class="subject-pill subject-pill-green">SAT/ACT Prep</span>
+        <span class="subject-pill subject-pill-blue">College Level Math</span>
+      </div>
+    </section>
+
+    <section class="section fade-in" id="details">
+      <div class="split-grid">
+        <div class="split-col">
+          <div class="section-header"><span class="section-title">Details</span></div>
+          <div class="approach-list">
+            <div class="approach-item">
+              <span class="approach-marker">🧩 </span>
+              <span class="approach-text"><strong>Online or in-person.</strong> Happy to meet in Seattle, Bellevue, Kirkland, Redmond.</span>
+            </div>
+            <div class="approach-item">
+              <span class="approach-marker">🧩 </span>
+              <span class="approach-text"><strong>Tailored sessions.</strong> Sessions are bound by understanding, not time.</span>
+            </div>
+            <div class="approach-item">
+              <span class="approach-marker">🧩 </span>
+              <span class="approach-text"><strong>Consistency > Cramming.</strong> Recurring sessions yield better results than last-minute prep.</span>
+            </div>
+          </div>
+        </div>
+        <div class="split-col">
+          <div class="section-header"><span class="section-title">Qualifications</span></div>
+          <div class="approach-list">
+            <div class="approach-item">
+              <span class="approach-marker">✅ </span>
+              <span class="approach-text"><strong>UCLA grad.</strong> B.S. Statistics and Data Science, Minor in Math.</span>
+            </div>
+            <div class="approach-item">
+              <span class="approach-marker">✅ </span>
+              <span class="approach-text"><strong>800 SAT Math, 36 ACT Math.</strong><br>I understand the standardized test grind more than I like to admit.</span>
+            </div>
+            <div class="approach-item">
+              <span class="approach-marker">✅ </span>
+              <span class="approach-text"><strong>30+ students tutored</strong> over 5 years. I love tutoring because it helps me understand elegant concepts more deeply!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in" id="pricing">
+      <div class="section-header"><span class="section-title">Pricing</span></div>
+      <div class="estimator-card">
+        <div class="estimator-note">Rates vary by subject, availability, and my current client demand. <b>Reach out with what makes sense for you and we'll find the optimal solution.</b> </div>
+        <div class="estimator-result">
+          <span class="estimator-result-label"><b>Rates start from</b></span>
+          <span class="estimator-result-value">$60/session</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in" id="contact">
+      <div class="section-header"><span class="section-title">Contact</span></div>
+      <form class="contact-form" action="https://formspree.io/f/mvzlldpv" method="POST">
+        <input type="hidden" name="form_source" value="tutoring" />
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <input type="text" name="subject_level" placeholder="Student's grade / subject" />
+        <textarea name="message" placeholder="What are you looking for help with?"></textarea>
+        <button type="submit">Send inquiry →</button>
+      </form>
+    </section>
+
+    <footer>
+      <span class="footer-left">© 2026 Aimee Xu</span>
+      <div class="footer-links">
+        <a href="https://medium.com/@aimxu" target="_blank">Medium</a>
+        <a href="https://youtube.com/@aimxu" target="_blank">YouTube</a>
+      </div>
+    </footer>
+  </div>
+  <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
