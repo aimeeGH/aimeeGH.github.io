@@ -63,6 +63,10 @@
     .nav-links a:hover { color: var(--sage); }
     .hero { margin-bottom: 3.5rem; }
     .about-label { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); margin-bottom: 1.25rem; }
+    .about-label .label-first { opacity: 0; transition: opacity 0.6s ease; }
+    #about.visible .label-first { opacity: 1; }
+    .about-label .label-second { opacity: 0; transform: translateY(4px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    body.scroll-up .about-label .label-second { opacity: 1; transform: translateY(0); }
     .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
     .hero-photo { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center top; border-radius: 12px; }
     .hero-text { display: flex; flex-direction: column; gap: 1rem; }
@@ -163,14 +167,14 @@
         <li><a href="#about">About</a></li>
         <li><a href="tutoring">Tutoring</a></li>
         <li><a href="blog.html">Writing</a></li>
-        <li><a href="piano.html">Piano</a></li>
+        <!-- <li><a href="piano.html">Piano</a></li> -->
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
     <section class="hero fade-in" id="about">
-      <div class="about-label"><span style="color:var(--sage)">ABOUT</span> AI<span style="color:var(--sage)">ME</span>E</div>
+      <div class="about-label"><span class="label-first" style="color:var(--sage)">ABOUT</span> <span class="label-second">AI</span><span class="label-first" style="color:var(--sage)">ME</span><span class="label-second">E</span></div>
       <div class="hero-layout">
         <div class="hero-text">
           <div class="location-bubble">
@@ -181,7 +185,7 @@
             Seattle, WA
           </div>
           <h1>Building a corner of the internet that's actually mine.</h1>
-          <p> Coconut-water connoisseur from California who spends her time training for triathlons, <a href="tutoring" style="color: var(--sage);">teaching math</a>, and exploring the Pacific Northwest by foot, bike, and paddleboard. </p>
+          <p> Coconut-water connoisseur from California who spends her time training for triathlons, <a href="tutoring" style="color: var(--sage);">teaching math</a>, and exploring all the nature the Pacific Northwest has to offer. </p>
           <p> Social media should be about connection and creative ownership — not ads and inauthenticity. Building what my ideal social media looks like, one digital footprint at a time. </p>
         </div>
         <img src="images/tir-aimee-xu-square.jpg" alt="Aimee Xu eating tiramisu" class="hero-photo" />
@@ -279,7 +283,7 @@
     <footer>
       <span class="footer-left">© 2026 Aimee Xu</span>
       <div class="footer-links">
-        <a href="https://medium.com/@aimxu" target="_blank">Medium</a>
+        <!-- <a href="https://medium.com/@aimxu" target="_blank">Medium</a> -->
         <a href="https://youtube.com/@aimxu" target="_blank">YouTube</a>
       </div>
     </footer>
@@ -294,6 +298,20 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  let lastScrollY = window.scrollY;
+  const SCROLL_THRESHOLD = 5;
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    const delta = currentScrollY - lastScrollY;
+    if (Math.abs(delta) < SCROLL_THRESHOLD) return;
+    if (delta < 0) {
+      document.body.classList.add('scroll-up');
+    } else {
+      document.body.classList.remove('scroll-up');
+    }
+    lastScrollY = currentScrollY;
+  }, { passive: true });
 </script>
 </body>
 </html>
