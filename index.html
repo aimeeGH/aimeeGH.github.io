@@ -38,7 +38,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -55,18 +55,20 @@
     .container { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
     nav {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.5rem 0 1.25rem; border-bottom: 0.5px solid var(--border); margin-bottom: 3rem;
+      padding: 1.5rem 0 1.25rem; border-bottom: 0.5px solid var(--border); margin-bottom: 2rem;
     }
     .nav-name { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
     .nav-links { display: flex; gap: 1.75rem; list-style: none; }
     .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
     .nav-links a:hover { color: var(--sage); }
     .hero { margin-bottom: 3.5rem; }
-    .about-label { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); margin-bottom: 1.25rem; }
-    .about-label .label-first { opacity: 0; transition: opacity 0.6s ease; }
-    #about.visible .label-first { opacity: 1; }
-    .about-label .label-second { opacity: 0; transform: translateY(4px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    body.scroll-up .about-label .label-second { opacity: 1; transform: translateY(0); }
+    .name-swap .sage { color: var(--sage); }
+    .name-swap .grow { display: inline-block; vertical-align: bottom; overflow: hidden; white-space: nowrap; max-width: 0; opacity: 0; transition: max-width 0.6s ease, opacity 0.4s ease; }
+    .name-swap.named .grow { max-width: 2em; opacity: 1; transition: max-width 1.5s ease, opacity 0.5s ease 0.5s; }
+    .name-swap.named:hover .grow { max-width: 0; opacity: 0; transition: max-width 1.5s ease, opacity 0.5s ease; }
+    @media (prefers-reduced-motion: reduce) {
+      .name-swap .grow, .name-swap.named .grow, .name-swap.named:hover .grow { max-width: 2em; opacity: 1; transition: none; }
+    }
     .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
     .hero-photo { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center top; border-radius: 12px; }
     .hero-text { display: flex; flex-direction: column; gap: 1rem; }
@@ -79,12 +81,21 @@
     .location-bubble svg { width: 13px; height: 13px; stroke: var(--sage); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .hero-text h1 { font-size: 22px; font-weight: 500; line-height: 1.35; color: var(--text); }
     .hero-text p { font-size: 14px; line-height: 1.75; color: var(--text-muted); }
+    .hero-text h1.typewriter-line { min-height: calc(3 * 1.35em); }
+    .typewriter { color: var(--sage); font-weight: 600; }
+    .typewriter a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .typewriter::after { content: ""; display: inline-block; width: 1.5px; height: 1.1em; margin-left: 2px; vertical-align: text-bottom; background: var(--sage); animation: caret-blink 1s step-end infinite; }
+    @keyframes caret-blink { 50% { opacity: 0; } }
+    .typewriter.done::after { animation: none; opacity: 0; transition: opacity 0.6s ease; }
     .section { margin-bottom: 3rem; }
     .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 0.5px solid var(--border); }
     .section-title { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
     .section-link { font-size: 12px; color: var(--sage); text-decoration: none; }
     .section-link:hover { text-decoration: underline; }
-    .now-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .now-layout { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 12px; align-items: stretch; }
+    .now-embed iframe { display: block; width: 100%; height: 100%; min-height: 352px; border: 0; border-radius: 12px; }
+    .now-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .now-grid .now-card { aspect-ratio: 16 / 9; padding: 0.875rem; display: flex; flex-direction: column; justify-content: center; }
     .now-card { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 12px; padding: 1rem; }
     .now-card-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; font-weight: 500; }
     .now-card-title { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.4; margin-bottom: 0.25rem; }
@@ -143,7 +154,10 @@
     @media (max-width: 560px) {
       .hero-layout { grid-template-columns: 1fr; }
       .hero-photo { aspect-ratio: 4/3; }
-      .now-grid { grid-template-columns: 1fr; }
+      .now-layout { grid-template-columns: 1fr; }
+      .now-embed iframe { height: 352px; }
+      .now-grid { grid-template-columns: repeat(3, 1fr); }
+      .now-grid .now-card { aspect-ratio: 1; }
       .projects-grid { grid-template-columns: 1fr; }
       .nav-links { gap: 1rem; }
     }
@@ -174,7 +188,6 @@
     </nav>
 
     <section class="hero fade-in" id="about">
-      <div class="about-label"><span class="label-first" style="color:var(--sage)">ABOUT</span> <span class="label-second">AI</span><span class="label-first" style="color:var(--sage)">ME</span><span class="label-second">E</span></div>
       <div class="hero-layout">
         <div class="hero-text">
           <div class="location-bubble">
@@ -184,9 +197,8 @@
             </svg>
             Seattle, WA
           </div>
-          <h1>Building a corner of the internet that's actually mine.</h1>
-          <p> Coconut-water connoisseur from California who spends her time training for triathlons, <a href="tutoring" style="color: var(--sage);">teaching math</a>, and exploring all the nature the Pacific Northwest has to offer. </p>
-          <p> Social media should be about connection and creative ownership — not ads and inauthenticity. Building what my ideal social media looks like, one digital footprint at a time. </p>
+          <h1 class="typewriter-line">Hi, I'm Aimee, and I'm <span class="typewriter" data-words='["building a corner of the internet that&#39;s actually mine.", "a math tutor.", "training for a triathlon.", "Central Valley grown.", "proud to be Asian American.", "a long distance swimmer.", "a UCLA Stats grad.", "probably drinking coconut water right now.", "learning how to adult.", "a pianist.", "happy you&#39;re here!"]' data-links='{"a math tutor": "tutoring", "a pianist": "https://youtu.be/m79adbRyPMc?si=fe9FTtP1mb2oJG4A"}'>building a corner of the internet that's actually mine.</span></h1>
+          <p> Social media should be about connection and creativity — not ads and algorithms. Building what my ideal social media looks like, one digital footprint at a time. </p>
         </div>
         <img src="images/tir-aimee-xu-square.jpg" alt="Aimee Xu eating tiramisu" class="hero-photo" />
       </div>
@@ -194,21 +206,26 @@
 
   <section class="section fade-in" id="now">
       <div class="section-header"><span class="section-title">Now</span></div>
-      <div class="now-grid">
-        <div class="now-card">
-          <div class="now-card-label">Reading</div>
-          <div class="now-card-title">Here One Moment</div>
-          <div class="now-card-sub">Liane Moriarty</div>
+      <div class="now-layout">
+        <div class="now-embed">
+          <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/playlist/16gGCrw870twKAiP3JUf75?utm_source=generator&si=a2756e484caf4de6" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify playlist"></iframe>
         </div>
-        <div class="now-card">
-          <div class="now-card-label">Learning</div>
-          <div class="now-card-title">Mandarin and French</div>
-          <div class="now-card-sub">for fun and for family</div>
-        </div>
-        <div class="now-card">
-          <div class="now-card-label">Listening</div>
-          <div class="now-card-title">Malcolm in the Middle</div>
-          <div class="now-card-sub">Malcolm Todd</div>
+        <div class="now-grid">
+          <div class="now-card">
+            <div class="now-card-label">Reading</div>
+            <div class="now-card-title">Here One Moment</div>
+            <div class="now-card-sub">Liane Moriarty</div>
+          </div>
+          <div class="now-card">
+            <div class="now-card-label">Learning</div>
+            <div class="now-card-title">Mandarin and French</div>
+            <div class="now-card-sub"> 你好! Bonjour! </div>
+          </div>
+          <div class="now-card">
+            <div class="now-card-label">Exploring</div>
+            <div class="now-card-title">PNW</div>
+            <div class="now-card-sub">hiking, camping, paddleboarding</div>
+          </div>
         </div>
       </div>
     </section>
@@ -270,7 +287,7 @@
 
     <section class="section fade-in" id="contact">
       <div class="section-header">
-        <span class="section-title"><span style="color:var(--sage)">CONTACT</span> AI<span style="color:var(--sage)">ME</span>E</span>
+        <span class="section-title name-swap"><span class="sage">CONTACT</span> <span class="grow">AI</span><span class="sage">ME</span><span class="grow">E</span></span>
       </div>
       <form class="contact-form" action="https://formspree.io/f/mvzlldpv" method="POST">
         <input type="text" name="name" placeholder="Your name" required />
@@ -289,29 +306,79 @@
     </footer>
   </div>
   <script>
+  // Keep the name swap from competing with the typewriter: it waits until the
+  // typewriter has finished or is scrolled out of view.
+  let typewriterInView = false;
+  const typewriterEl = document.querySelector('.typewriter');
+  if (typewriterEl) {
+    new IntersectionObserver(([entry]) => { typewriterInView = entry.isIntersecting; })
+      .observe(typewriterEl);
+  }
+  const typewriterBusy = () =>
+    typewriterEl && typewriterInView && !typewriterEl.classList.contains('done');
+
+  const swapName = label => {
+    if (typewriterBusy()) { setTimeout(() => swapName(label), 500); return; }
+    label.classList.add('named');
+  };
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        entry.target.querySelectorAll('.name-swap').forEach(label => {
+          setTimeout(() => swapName(label), 1000);
+        });
       }
     });
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  let lastScrollY = window.scrollY;
-  const SCROLL_THRESHOLD = 5;
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    const delta = currentScrollY - lastScrollY;
-    if (Math.abs(delta) < SCROLL_THRESHOLD) return;
-    if (delta < 0) {
-      document.body.classList.add('scroll-up');
-    } else {
-      document.body.classList.remove('scroll-up');
-    }
-    lastScrollY = currentScrollY;
-  }, { passive: true });
+  document.querySelectorAll('.typewriter').forEach(el => {
+    const words = JSON.parse(el.dataset.words);
+    const links = JSON.parse(el.dataset.links || '{}');
+    const show = (word, text) => {
+      const href = links[word.replace(/[.!]$/, '')];
+      if (!href) { el.textContent = text; return; }
+      const a = document.createElement('a');
+      a.href = href;
+      if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; }
+      a.textContent = text;
+      el.replaceChildren(a);
+    };
+    // The first word (the site's thesis) is already in the HTML. It's held longer, then the
+    // other words cycle once and the thesis is typed back in to finish.
+    // With reduced motion, it simply stays put.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const holdFor = index => index === 0 ? 3600 : 2600;
+
+    let wordIndex = 0;
+    let charCount = words[0].length;
+    let deleting = true;
+    const tick = () => {
+      const word = words[wordIndex];
+      charCount += deleting ? -1 : 1;
+      show(word, word.slice(0, charCount));
+
+      if (!deleting && charCount === word.length && wordIndex === 0) {
+        setTimeout(() => el.classList.add('done'), 2000);
+        return;
+      }
+
+      let delay = deleting ? 60 : 200;
+      if (!deleting && charCount === word.length) {
+        deleting = true;
+        delay = holdFor(wordIndex);
+      } else if (deleting && charCount === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        delay = 600;
+      }
+      setTimeout(tick, delay);
+    };
+    setTimeout(tick, holdFor(0));
+  });
 </script>
 </body>
 </html>
