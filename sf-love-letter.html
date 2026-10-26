@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A (Bittersweet) Love Letter to San Francisco — Aimee Xu</title>
+  <meta name="description" content="A bittersweet love letter to San Francisco from Aimee Xu, written with her bags packed at SFO." />
+  <meta name="author" content="Aimee Xu" />
+  <link rel="canonical" href="https://aimeexu.com/sf-love-letter" />
+  <link rel="icon" type="image/jpeg" href="website-favicon.jpg" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="A (Bittersweet) Love Letter to San Francisco — Aimee Xu" />
+  <meta property="og:description" content="A bittersweet love letter to San Francisco from Aimee Xu, written with her bags packed at SFO." />
+  <meta property="og:url" content="https://aimeexu.com/sf-love-letter" />
+  <meta property="og:image" content="https://aimeexu.com/images/sf-golden-gate.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A (Bittersweet) Love Letter to San Francisco — Aimee Xu" />
+  <meta name="twitter:description" content="A bittersweet love letter to San Francisco from Aimee Xu, written with her bags packed at SFO." />
+  <meta name="twitter:image" content="https://aimeexu.com/images/sf-golden-gate.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --sage: #7a9e7e;
+      --sage-light: #eef3ee;
+      --sage-mid: #b8cfba;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --border: rgba(0,0,0,0.1);
+      --bg: #faf8f4;
+      --card-bg: #ffffff;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Nav */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 0 1.25rem; border-bottom: 0.5px solid var(--border); margin-bottom: 3rem;
+    }
+    .nav-name { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--sage); }
+
+    /* Article header */
+    .article-header { margin-bottom: 2.5rem; }
+    .article-tag {
+      display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--sage-light); color: var(--sage);
+      padding: 3px 10px; border-radius: 20px; font-weight: 500; margin-bottom: 1rem;
+    }
+    .article-header h1 {
+      font-family: 'Lora', serif; font-size: 32px; font-weight: 500;
+      line-height: 1.3; color: var(--text); margin-bottom: 1rem;
+    }
+    .article-meta { font-size: 13px; color: var(--text-muted); }
+    .article-meta span { margin-right: 1.5rem; }
+
+    /* Prose */
+    .prose { font-size: 16px; line-height: 1.85; color: var(--text); }
+    .prose p { margin-bottom: 1.5rem; }
+    .prose h2 {
+      font-family: 'Lora', serif; font-size: 20px; font-weight: 500;
+      color: var(--text); margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border);
+    }
+    .prose em { font-style: italic; }
+    .prose strong { font-weight: 500; }
+
+    .prose a { color: var(--sage); }
+    .prose ol { padding-left: 1.25rem; margin-bottom: 1.5rem; }
+    .prose s { text-decoration: line-through; }
+    .equation { font-family: 'Lora', serif; font-size: 22px; text-align: center; color: var(--sage); margin: 0 0 2.5rem; }
+    .photo { margin: 0 0 1.5rem; }
+    .photo img { width: 100%; height: auto; display: block; border-radius: 12px; }
+    .photo figcaption { font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 0.6rem; }
+    .best-list { list-style: none; columns: 2; column-gap: 2rem; font-size: 14px; line-height: 1.6; margin-bottom: 1.5rem; }
+    .best-list li { break-inside: avoid; margin-bottom: 0.4rem; }
+    .best-list li span { color: var(--text-muted); }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--text-muted); text-decoration: none;
+      margin-bottom: 2rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--sage); }
+
+    /* Footer */
+    footer {
+      padding: 1.5rem 0; border-top: 0.5px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; margin-top: 3rem;
+    }
+    .footer-left { font-size: 12px; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--sage); }
+
+    /* Fade in */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 560px) {
+      .article-header h1 { font-size: 24px; }
+      .nav-links { gap: 1rem; }
+      .best-list { columns: 1; }
+    }
+  .toc {
+  background: var(--sage-light);
+  border: 0.5px solid var(--sage-mid);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.toc-label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 0.75rem;
+}
+.toc-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.toc-links a { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+.toc-links a:hover { color: var(--sage); }
+    .letter { font-family: 'Lora', serif; font-size: 18px; line-height: 1.9; }
+    .letter p { margin-bottom: 1.75rem; }
+    .letter .salutation, .letter .signoff { font-style: italic; }
+    .letter .signature { font-style: normal; font-weight: 500; letter-spacing: 0.08em; color: var(--sage); }
+    .letter .ending { text-align: center; font-style: italic; color: var(--sage); margin: 2.5rem 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="nav-name">Aimee Xu</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="tutoring">Tutoring</a></li>
+        <li><a href="blog.html">Writing</a></li>
+        <!-- <li><a href="piano.html">Piano</a></li> -->
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="blog.html" class="back-link">← All posts</a>
+
+    <div class="article-header fade-in">
+      <span class="article-tag">Personal</span>
+      <h1>A (Bittersweet) Love Letter to San Francisco</h1>
+      <div class="article-meta">
+        <span>Aimee Xu</span>
+        <span>Dec 2025</span>
+        <span>I &lt;3 SF</span>
+      </div>
+    </div>
+
+    <figure class="photo fade-in">
+      <img src="images/sf-golden-gate.jpg" alt="The Golden Gate Bridge at golden hour, seen from a coastal trail in San Francisco" width="1400" height="1050" />
+    </figure>
+
+    <div class="prose letter fade-in">
+      <p class="salutation">Dear <strong>San Francisco</strong>,</p>
+
+      <p>I’ll admit… I had my suspicions at first.<br />You were the mysterious type, draped in layers of fog and bad press.<br />They only seemed to speak of your faults like a vindictive yet effective ex.</p>
+
+      <p>Yet, as summer turned fall and fall fell for winter, I found myself quickly falling for you.<br />I began looking forward to our dinner-for-1 dates overlooking the Golden Gate Bridge and the sparkling Bay.</p>
+
+      <p>I tried on different hobbies so that you’d like me more.<br />Kickboxing, pilates, and yoga classes passed with each month.<br />Yet none seemed to stick as much as taking a walk in McLaren Park.<br />We’d get up early on Saturdays and bring books to performatively read at museums, libraries, and overpriced cafes.<br />We’d people-watch in farmers’ markets, Dolores, and at Giants Games.<br />You told me to pack layers, but the California Girl in me refused to listen.<br />We’d predictably end the night in a Waymo, belting out Charli XCX.</p>
+
+      <p>A career-obsessed city hoping to make it big in the AI Gold Rush;<br />I, too, was fueled only by ambition and Philz Coffee.<br /> A city so easy on the eyes that I could ignore how nervous I felt walking home alone after a night out with you.<br />You weren’t afraid of hiding from who you actually were when I was only starting to figure it out for myself.<br />You were authentically weird… And I fucking loved that about you.</p>
+
+      <p>Perhaps you were so used to your exes leaving you for NYC;<br />Perhaps it was because I had already found someone else.<br />But first loves seldom last. And puppy love must grow up.<br />Was what we had real? Or was it all in my head?</p>
+
+      <p class="ending">As I sit here with my bags packed at SFO, I wonder if you’ll ever miss me.</p>
+
+      <p class="ending">Because I sure as hell miss you.</p>
+
+      <p class="signoff">Until we meet again,<br /><span class="signature">MISS xU</span></p>
+    </div>
+
+    <footer>
+      <span class="footer-left">© 2026 Aimee Xu</span>
+      <div class="footer-links">
+        <!-- <a href="https://medium.com/@aimxu" target="_blank">Medium</a> -->
+        <a href="https://youtube.com/@aimxu" target="_blank">YouTube</a>
+      </div>
+    </footer>
+  </div>
+
+ 
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
