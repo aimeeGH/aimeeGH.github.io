@@ -100,14 +100,13 @@
     .now-card-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; font-weight: 500; }
     .now-card-title { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.4; margin-bottom: 0.25rem; }
     .now-card-sub { font-size: 12px; color: var(--text-muted); }
-    .writing-grid { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 24px) / 3); gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; padding: 4px 0 14px; margin: -4px 0 -14px; }
-    .writing-grid::-webkit-scrollbar { display: none; }
+    .writing-grid { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 24px) / 3); gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: rgba(122,158,126,0.18) transparent; padding: 4px 0 14px; margin: -4px 0 -14px; transition: scrollbar-color 0.2s; }
+    .writing-grid:hover { scrollbar-color: rgba(122,158,126,0.45) transparent; }
+    .writing-grid::-webkit-scrollbar { height: 4px; }
+    .writing-grid::-webkit-scrollbar-track { background: transparent; }
+    .writing-grid::-webkit-scrollbar-thumb { background: rgba(122,158,126,0.18); border-radius: 4px; }
+    .writing-grid:hover::-webkit-scrollbar-thumb { background: rgba(122,158,126,0.45); }
     .writing-card { scroll-snap-align: start; }
-    .section-actions { display: flex; align-items: center; gap: 0.75rem; }
-    .scroll-btns { display: flex; gap: 6px; }
-    .scroll-btn { width: 26px; height: 26px; border-radius: 50%; border: 0.5px solid var(--border); background: var(--card-bg); color: var(--text-muted); font: inherit; font-size: 13px; line-height: 1; cursor: pointer; transition: all 0.15s; }
-    .scroll-btn:hover:not(:disabled) { background: var(--sage-light); border-color: var(--sage-mid); color: var(--sage); }
-    .scroll-btn:disabled { opacity: 0.35; cursor: default; }
     .writing-card { display: flex; flex-direction: column; background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .writing-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
     .writing-card-photo { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: linear-gradient(135deg, var(--sage-light), var(--sage-mid)); }
@@ -244,13 +243,6 @@
    <section class="section fade-in" id="writing">
       <div class="section-header">
         <span class="section-title">Writing</span>
-        <div class="section-actions">
-          <a href="blog.html" class="section-link">All posts →</a>
-          <div class="scroll-btns">
-            <button type="button" class="scroll-btn" data-dir="-1" aria-label="Scroll writing left">←</button>
-            <button type="button" class="scroll-btn" data-dir="1" aria-label="Scroll writing right">→</button>
-          </div>
-        </div>
       </div>
       <div class="writing-grid">
         <a href="france2026" class="writing-card">
@@ -335,22 +327,6 @@
     </footer>
   </div>
   <script>
-  // Writing row: arrow buttons scroll one card at a time and disable at either end.
-  const writingGrid = document.querySelector('.writing-grid');
-  const scrollBtns = document.querySelectorAll('.scroll-btn');
-  const updateScrollBtns = () => {
-    const max = writingGrid.scrollWidth - writingGrid.clientWidth;
-    scrollBtns[0].disabled = writingGrid.scrollLeft <= 1;
-    scrollBtns[1].disabled = writingGrid.scrollLeft >= max - 1;
-  };
-  scrollBtns.forEach(btn => btn.addEventListener('click', () => {
-    const step = writingGrid.querySelector('.writing-card').offsetWidth + 12;
-    writingGrid.scrollBy({ left: step * Number(btn.dataset.dir) });
-  }));
-  writingGrid.addEventListener('scroll', updateScrollBtns, { passive: true });
-  window.addEventListener('resize', updateScrollBtns);
-  updateScrollBtns();
-
   // Keep the name swap from competing with the typewriter: it waits until the
   // typewriter has finished or is scrolled out of view.
   let typewriterInView = false;
