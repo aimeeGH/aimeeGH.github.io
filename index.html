@@ -100,12 +100,15 @@
     .now-card-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; font-weight: 500; }
     .now-card-title { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.4; margin-bottom: 0.25rem; }
     .now-card-sub { font-size: 12px; color: var(--text-muted); }
-    .writing-list { display: flex; flex-direction: column; }
-    .writing-item { display: flex; justify-content: space-between; align-items: baseline; padding: 0.85rem 0; border-bottom: 0.5px solid var(--border); text-decoration: none; color: inherit; transition: opacity 0.15s; }
-    .writing-item:hover { opacity: 0.7; }
-    .writing-title { font-size: 14px; color: var(--text); }
-    .writing-meta { font-size: 12px; color: var(--text-muted); white-space: nowrap; margin-left: 1rem; }
-    .writing-tag { display: inline-block; font-size: 10px; letter-spacing: 0.06em; background: var(--sage-light); color: var(--sage); padding: 2px 8px; border-radius: 20px; margin-left: 8px; font-weight: 500; }
+    .writing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .writing-card { display: flex; flex-direction: column; background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .writing-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+    .writing-card-photo { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: linear-gradient(135deg, var(--sage-light), var(--sage-mid)); }
+    .writing-card-body { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.75rem 0.875rem 0.875rem; flex: 1; }
+    .writing-card-title { font-size: 13px; font-weight: 500; line-height: 1.4; color: var(--text); }
+    .writing-card-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; }
+    .writing-card-date { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+    .writing-tag { display: inline-block; font-size: 10px; letter-spacing: 0.06em; background: var(--sage-light); color: var(--sage); padding: 2px 8px; border-radius: 20px; font-weight: 500; }
     .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .project-card { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem; }
     .project-icon { font-size: 18px; margin-bottom: 0.6rem; }
@@ -159,6 +162,9 @@
       .now-grid { grid-template-columns: repeat(3, 1fr); }
       .now-grid .now-card { aspect-ratio: 1; }
       .projects-grid { grid-template-columns: 1fr; }
+      .writing-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 72%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 -1.5rem; padding: 0 1.5rem 4px; scroll-padding: 0 1.5rem; }
+      .writing-grid::-webkit-scrollbar { display: none; }
+      .writing-card { scroll-snap-align: start; }
       .nav-links { gap: 1rem; }
     }
 
@@ -197,7 +203,7 @@
             </svg>
             Seattle, WA
           </div>
-          <h1 class="typewriter-line">Hi, I'm Aimee, and I'm <span class="typewriter" data-words='["building a corner of the internet that&#39;s actually mine.", "a math tutor.", "Central Valley Grown.", "a UCLA Stats grad.", "probably drinking coconut water right now.", "the proud daughter of immigrants.", "a pianist.", "still figuring it out.", "happy you&#39;re here!"]' data-links='{"a math tutor": "tutoring", "a pianist": "https://youtu.be/m79adbRyPMc?si=fe9FTtP1mb2oJG4A"}'>building a corner of the internet that's actually mine.</span></h1>
+          <h1 class="typewriter-line">Hi, I'm Aimee, and I'm <span class="typewriter" data-words='["building a corner of the internet that&#39;s actually mine.", "Central Valley Grown.", "a UCLA Stats grad.", "definitely drinking coconut water right now.", "the daughter of hardworking immigrants.",  "a math tutor.", "a pianist.", "happy you&#39;re here!"]' data-links='{"a math tutor": "tutoring", "a pianist": "https://youtu.be/m79adbRyPMc?si=fe9FTtP1mb2oJG4A"}'>building a corner of the internet that's actually mine.</span></h1>
           <p> Social media should be about connection and creativity — not ads and algorithms. Building what my ideal social media looks like, one digital footprint at a time. </p>
         </div>
         <img src="images/tir-aimee-xu-square.jpg" alt="Aimee Xu eating tiramisu" class="hero-photo" />
@@ -235,22 +241,27 @@
         <span class="section-title">Writing</span>
         <a href="blog.html" class="section-link">All posts →</a>
       </div>
-      <div class="writing-list">
-        <a href="france2026" class="writing-item">
-          <span class="writing-title">Aimee in Paris (+ South of France) <span class="writing-tag">Travel</span></span>
-          <span class="writing-meta">Oct 2026</span>
+      <div class="writing-grid">
+        <a href="france2026" class="writing-card">
+          <img src="images/paris-opera-card.jpg" alt="Rooftop view of the Palais Garnier and Paris skyline with the Eiffel Tower" class="writing-card-photo" width="640" height="480" loading="lazy" decoding="async" />
+          <div class="writing-card-body">
+            <span class="writing-card-title">Aimee in Paris (+ South of France)</span>
+            <span class="writing-card-meta"><span class="writing-tag">Travel</span><span class="writing-card-date">Sept 2026</span></span>
+          </div>
         </a>
-        <a href="aapi.html" class="writing-item">
-          <span class="writing-title">Third Culture Superpowers <span class="writing-tag">Personal</span></span>
-          <span class="writing-meta">May 2026</span>
+        <a href="uk-solo-trip.html" class="writing-card">
+          <img src="images/stonehenge-card.jpg" alt="Stonehenge under a blue sky" class="writing-card-photo" width="640" height="480" loading="lazy" decoding="async" />
+          <div class="writing-card-body">
+            <span class="writing-card-title">Solo Traveling through the UK</span>
+            <span class="writing-card-meta"><span class="writing-tag">Travel</span><span class="writing-card-date">May 2026</span></span>
+          </div>
         </a>
-        <a href="uk-solo-trip.html" class="writing-item">
-          <span class="writing-title">Reflections from Solo-Traveling through the UK <span class="writing-tag">Travel</span></span>
-          <span class="writing-meta">May 2026</span>
-        </a>
-        <a href="https://medium.com/@aimxu/the-courage-to-be-disliked-a93001029320" target="_blank" class="writing-item">
-          <span class="writing-title">The Courage to Be Disliked <span class="writing-tag">Personal</span></span>
-          <span class="writing-meta">May 2026</span>
+        <a href="2025" class="writing-card">
+          <img src="images/moorea-2025-card.jpg" alt="Rope swing on a beach in Moorea, French Polynesia" class="writing-card-photo" width="640" height="480" loading="lazy" decoding="async" />
+          <div class="writing-card-body">
+            <span class="writing-card-title">Reflections from 2025</span>
+            <span class="writing-card-meta"><span class="writing-tag">Personal</span><span class="writing-card-date">Dec 2025</span></span>
+          </div>
         </a>
       </div>
     </section>
@@ -274,12 +285,12 @@
       <div class="project-icon">🌐</div>
       <div class="project-title">This website</div>
       <div class="project-desc">MY terms and conditions apply.</div>
-       <span class="project-status status-in-progress">In progress</span>
+       <span class="project-status status-deployed">Deployed</span>
     </div>
     <div class="project-card">
       <div class="project-icon">📈</div>
-      <div class="project-title">Personal finance tracker</div>
-      <div class="project-desc">Excel-born, eventually web-based.</div>
+      <div class="project-title">Aimouk</div>
+      <div class="project-desc">Excel-born personal finance tracker, eventually web-based.</div>
        <span class="project-status status-in-progress">In progress</span>
     </div>
   </div>
