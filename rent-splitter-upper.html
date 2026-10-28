@@ -110,7 +110,7 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500;margin:0 0 12p
 
     <div class="screen" data-step="3">
       <span class="partner-tag" id="p2tag">Partner 2</span>
-      <h2 tabindex="-1">Now, your better half.</h2>
+      <h2 tabindex="-1">What are they working with?</h2>
       <p class="lede">Same idea: annual gross income, plus recurring monthly debt payments.</p>
       <div class="fields">
         <div class="field"><label for="p2name">Name <small>optional</small></label><div class="money"><input id="p2name" class="name" autocomplete="off" placeholder="Partner 2" maxlength="30"></div></div>
@@ -125,7 +125,7 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500;margin:0 0 12p
 
     <div class="screen" data-step="4">
       <h2 tabindex="-1">How much is the place?</h2>
-      <p class="lede">Enter the total monthly rent for the apartment or house—not one partner’s share.</p>
+      <p class="lede">Enter the total monthly rent for the apartment.</p>
       <div class="rentbox">
         <div class="field"><label for="rent">Monthly rent</label><div class="money"><span>$</span><input id="rent" class="amount" inputmode="decimal" placeholder="3,000" aria-describedby="rentHint"></div><div class="hint" id="rentHint">We’ll split this proportionally using each partner’s income after monthly debt payments. You can switch to gross income on the results screen.</div></div>
       </div>
@@ -197,7 +197,7 @@ function tabGo(n){if(n<=furthest)go(n);}
 
 function basisToggle(){
   const b=(v,label)=>`<button type="button" aria-pressed="${basis===v}" onclick="setBasis('${v}')">${label}</button>`;
-  return `<div class="basis" role="group" aria-label="Split based on"><span>Split based on</span><span class="basis-btns">${b('after','Income after debt')}${b('gross','Gross income')}</span></div>`;
+  return `<div class="basis" role="group" aria-label="Split based on"><span>Split based on</span><span class="basis-btns">${b('after','Include debt')}${b('gross','Exclude debt')}</span></div>`;
 }
 function setBasis(b){basis=b;calculate({focus:false,scroll:false});saveToURL();$('announcer').textContent=`Split recalculated using ${b==='after'?'income after debt':'gross income'}.`;}
 
@@ -244,7 +244,7 @@ function calculate(opts={}){
   else if(zone==='green') msg=`<strong>Looking good.</strong> Rent is under 30% of ${basisText}.`;
   else if(zone==='yellow') msg=`<strong>Getting a little pricey.</strong> Between 30% and 50% of ${basisText} would go to rent. Around ${money(affordable)}/month would put you at 30%.`;
   else msg=`<strong>That rent is eating up a lot of your income.</strong> More than half of ${basisText} would go to housing. Around ${money(affordable)}/month would put you at 30%.`;
-  if(after) msg+=` <br><small>Heads up: the classic 30% rule uses gross income before debt, so this is the stricter version. These are also pre-tax numbers, so take-home pay will be lower.</small>`;
+  if(after) msg+=` <br><small>Heads up: The "30% towards rent" rule uses gross income before debt, so in this scenario, you could be subsidizing your partner's debt. .</small>`;
   else msg+=` <br><small>These are pre-tax numbers, so take-home pay will be lower.</small>`;
 
   const needle=Math.min(100,Math.max(0,burden));
