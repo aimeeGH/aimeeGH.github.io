@@ -244,8 +244,6 @@ function calculate(opts={}){
   else if(zone==='green') msg=`<strong>Looking good.</strong> Rent is under 30% of ${basisText}.`;
   else if(zone==='yellow') msg=`<strong>Getting a little pricey.</strong> Between 30% and 50% of ${basisText} would go to rent. Around ${money(affordable)}/month would put you at 30%.`;
   else msg=`<strong>That rent is eating up a lot of your income.</strong> More than half of ${basisText} would go to housing. Around ${money(affordable)}/month would put you at 30%.`;
-  if(after) msg+=` <br><small>Heads up: The "30% towards rent" rule uses gross income before debt, so in this scenario, you could be subsidizing your partner's debt. .</small>`;
-  else msg+=` <br><small>These are pre-tax numbers, so take-home pay will be lower.</small>`;
 
   const needle=Math.min(100,Math.max(0,burden));
   out.innerHTML=`<div class="result-top"><h2 tabindex="-1">Here’s your fair split.</h2><div class="rent-total">For ${money(rent,true)} in monthly rent</div>${basisToggle()}</div>
